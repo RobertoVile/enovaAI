@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controversy</title>
+  <link rel="stylesheet" href="confirmacao_compra.css">
+
+  <script type="module"  src="../../../produtos_da_busca.js" defer></script>
+ 
+  <script type="module" src="confirmacao_carrinho.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="header-container">
+      
+      <!-- Menu Área -->
+      <div class="menu-area">
+
+        <!-- Menu Container -->
+        <div class="menu-container">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="barra-lateral">
+          <ul>
+            <li><a href="../../../tela-inicial.html">Início</a></li>
+            <li><a href="../login/tela_login.html">Login</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href='../ver_mais/casual_ver_mais/casual_ver_mais.html?categoria=Moda%20Casual'>Moda Casual</a></li>
+            <li><a href="#">Moda Corporativa</a></li>
+            <li><a href="#">Moda Festiva</a></li>
+            <li><a href="#">Moda Inverno</a></li>
+          </ul>
+        </nav>
+
+        <p class="menu-texto">MENU</p>
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa">
+
+      </div>
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+      <!-- Área Direita -->
+      <div class="area-direita">
+        <img src="/imagens/user_icon.png" alt="Usuário" class="usuario_icone">
+       <img src="/imagens/carrinho.png" alt="Carrinho" class="carrinho" onclick="location.href='../../carrinho/carrinho.html'">
+      </div>
+
+    </nav>
+
+    <!-- Barra Acima (movida para cá, fora da .menu-area) -->
+    <div class="barra-acima">
+
+      <!-- Botão X para fechar -->
+      <div class="x-container">
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+      </div>
+
+      <!-- Barra de Pesquisa -->
+      <div class="barra-pesquisa">
+       
+        <input class="pesquisa" type="text" placeholder="Buscar produtos..." />
+         <img src="/imagens/lupa.png" alt="Lupa" class="lupa-input">
+         <div class="simples-x-fechar"></div>
+          <div class="simples-x"></div>
+      </div>
+
+      <!-- Menu de Categorias -->
+      <nav class="categorias-menu">
+        <ul>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Corporativa</a></li>
+          <li><a href="#">Festiva</a></li>
+          <li><a href="#">Inverno</a></li>
+        </ul>
+      </nav>
+
+      <!-- Seção Mais Vendidos -->
+      <section class="mais-vendido">
+        <h2>Mais Vendidos</h2>
+        <div class="card-container">
+          
+        </div>
+    </section>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal que receberá blur -->
+<div class="content-wrapper">
+    <div class="checkout-container">
+  <!-- Coluna da esquerda: forma de entrega -->
+  <div class="container-entrega">
+    <h2>Escolha a forma de entrega</h2>
+
+    <div class="opcao-entrega">
+      <label>
+        <div class="borda">
+        <input type="radio" name="entrega" checked>
+        <span class="titulo-opcao">Enviar no meu Endereço</span><br>
+        <span class="subtitulo-opcao">xxxx-xxx xxxxxx; 123</span>
+        </div>
+      </label>
+      <!--<div class="borda">
+      <a href="#" class="link-adicionar-endereco">Adicionar novo endereço</a>
+      </div>-->
+    </div>
+
+    <div class="opcao-entrega">
+      <label>
+        <div class="borda">
+        <input type="radio" name="entrega">
+        <span class="titulo-opcao">Retirada na loja</span>
+        <span class="rotulo-gratis">Grátis</span>
+        </div>
+      </label>
+    </div>
+
+    <button class="botao-continuar">CONTINUAR</button>
+  </div>
+
+  <!-- Coluna da direita: resumo da compra -->
+<div class="resumo-compra">
+  <h2>Resumo da Compra</h2>
+  
+  </div>
+  </div>
+  </div>
+ <!-- Footer -->
+<footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>Controversy • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+   
+</footer>
+</body>
+</html>

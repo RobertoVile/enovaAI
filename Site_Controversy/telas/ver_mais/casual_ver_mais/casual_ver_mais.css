@@ -1,0 +1,244 @@
+/*-------------------------------------------------
+  1. Imports e Reset
+-------------------------------------------------*/
+
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+
+/*-------------------------------------------------
+  2. Estrutura Global
+-------------------------------------------------*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+/*-------------------------------------------------
+  3. Banner e Título Principal
+-------------------------------------------------*/
+
+.banner {
+  position: relative;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.banner h1 {
+  position: absolute;
+  bottom: 50%;
+  right: 5%;
+  color: var(--branco);
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px #000;
+  font-family: Hammersmith One;
+}
+
+.moda-texto2 {
+  text-align: center;
+  margin: 1rem 0;
+  font-family: Harmattan;
+  color: #0000004D;
+  opacity: 0.9;
+}
+
+
+/*-------------------------------------------------
+  4. Painel de Filtros (Filter Panel)
+-------------------------------------------------*/
+
+
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+  font-family: Harmattan;
+}
+
+
+.filter-section,
+.filter-section-tamanho {
+  flex: 1 1 200px;
+  padding: 0 0.5rem;
+  border-left: 1px solid #ccc;
+  position: relative;
+  text-align: center;
+}
+
+.filter-title,
+.filter-title-opcao {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.filter-title-opcao {
+  color: white;
+  background-color: var(--pretoVariante);
+}
+
+
+.arrow,
+.arrow-opcao {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 0.5rem;
+}
+
+
+.filter-options {
+  opacity: 0;
+  list-style: none;
+  background: var(--branco);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+  font-size: 20px;
+}
+
+
+.filter-options ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-options ul li {
+  margin: 0.4rem 0;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.filter-options ul li:hover {
+  color: var(--preto);
+}
+
+
+.opcoes-de-tamanho {
+  opacity: 0;
+  list-style: none;
+  background: var(--cinzaVariante);
+  width: 100%;
+  z-index: 10;
+  margin-top: -24px;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+}
+
+/* Itens de tamanho */
+.opcoes-de-tamanho ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.opcoes-de-tamanho ul li {
+  cursor: pointer;
+  color: var(--branco);
+  transition: color 0.2s;
+}
+
+.opcoes-de-tamanho ul li:hover {
+  color: var(--branco);
+  background-color: var(--pretoVariante);
+}
+
+
+/*-------------------------------------------------
+  5. Abertura e Fechamento de Filtros
+-------------------------------------------------*/
+
+.filter-section.show-options > .filter-options {
+  opacity: 1;
+}
+
+
+.filter-section.show-options > .filter-title .arrow {
+  transform: rotate(180deg);
+}
+
+
+.filter-section-tamanho.show-sizes > .opcoes-de-tamanho {
+  opacity: 1;
+}
+
+.filter-section-tamanho.show-sizes > .filter-title-opcao .arrow-opcao {
+  transform: rotate(180deg);
+}
+
+.filter-options,
+.opcoes-de-tamanho {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.filter-section.show-options > .filter-options {
+  max-height: 500px; 
+}
+
+.filter-section-tamanho.show-sizes > .opcoes-de-tamanho {
+  max-height: 500px; 
+}
+
+
+.filter-options,
+.opcoes-de-tamanho {
+  position: static !important;
+}
+
+
+/*-------------------------------------------------
+  6. Grade de Produtos (Product Grid)
+-------------------------------------------------*/
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.product-grid img{
+  object-fit: cover;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/*-------------------------------------------------
+  7. Responsividade
+-------------------------------------------------*/
+
+@media (max-width: 1200px) {
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

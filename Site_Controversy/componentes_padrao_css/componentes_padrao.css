@@ -1,0 +1,456 @@
+/*------------------------------------
+  1. Fontes Personalizadas
+------------------------------------*/
+@font-face {
+  font-family: 'Hammersmith One';
+  src: url('/fontes/HammersmithOne.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Harmattan';
+  src: url('/fontes/Harmattan-Regular.ttf') format('truetype');
+}
+
+/*------------------------------------
+  2. Elementos Globais
+------------------------------------*/
+
+:root {
+    --preto: #000;
+    --branco: #fff;
+    --dourado: #C3971E; 
+    --cinzaClaro: #ccc;
+    --pretoVariante:#000000CC;
+    --cinzaVariante:#5B5B5B;
+    --azulChamativo:#0080FF;
+}
+
+
+h3 {
+  font-family: Hammersmith One;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: none;
+  min-height: 100%;
+  position: relative;
+  user-select: none;
+}
+
+/*------------------------------------
+  3. Header Principal
+------------------------------------*/
+header {
+  background-image: url(/Site_Controversy/imagens/fundo_header.png);
+  position: sticky;
+  top: 0;
+  padding-bottom: 40;
+  z-index: 10;
+  transition: all 0.5s ease;
+  font-family: Harmattan;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7vw 2vw;
+  height: 7vw;
+}
+
+/*------------------------------------
+  4. Área do Menu
+------------------------------------*/
+.menu-area {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  padding-left: 10px;
+}
+.menu-container {
+  width: 2rem;       
+  height: 1.4375rem;   
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-bar {
+  width: 79%;
+  height: 5px;
+  background-color: white;
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0.6;
+}
+.menu-container.open .menu-bar:nth-child(1) {
+  transform: rotate(40deg) translateY(230%);
+}
+.menu-container.open .menu-bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-container.open .menu-bar:nth-child(3) {
+  transform: rotate(-40deg) translateY(-230%);
+}
+.menu-texto {
+  color: white;
+  font-family: Harmattan;
+  font-size: 1.5vw;
+  padding-top: 3px;
+  padding-right: 10px;
+  transition: margin-left 0.5s ease;
+}
+.barra-lateral {
+  position: fixed;
+  top: 8.4vw;
+  overflow-y: scroll;
+  height: calc(100% - 7vw);
+  left: -100%;
+  width: 30%;
+  background: #000;
+  padding: 2rem 1.5rem;
+  transition: left 0.4s ease-in-out, background-color 0.1s ease;
+}
+.barra-lateral ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.barra-lateral ul li {
+  padding-bottom: 1rem;
+}
+.barra-lateral ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Harmattan;
+  font-size: 2vw;
+  text-transform: uppercase;
+  text-decoration: underline 0 rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
+}
+.barra-lateral ul li a:hover {
+  text-decoration: underline 1px white;
+}
+.barra-lateral::-webkit-scrollbar {
+  width: 8px;
+}
+.barra-lateral::-webkit-scrollbar-track {
+  background-color: black;
+}
+.barra-lateral::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 4px;
+}
+.barra-lateral::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+/* Quando aberto, desloca para 0 */
+.menu-container.open ~ .barra-lateral {
+  left: 0;
+}
+
+/*------------------------------------
+  5. Logo Central
+------------------------------------*/
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 150%;
+  width: auto;
+  object-fit: contain;
+  padding-top: 3px;
+  z-index: 1000;
+}
+
+/*------------------------------------
+  6. Ícones de Ação
+     - Busca (lupa)
+     - Usuário e Carrinho
+------------------------------------*/
+.lupa {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+.carrinho-area {
+    display: flex;
+    justify-content: end;
+}
+  
+.area-direita {
+    display: flex;
+}
+
+.usuario_icone{
+    height: 40px;
+    width: 40px;
+    padding-right: 10px;
+    filter: invert(100%) sepia(0%) saturate(0%) brightness(50%);
+    cursor: pointer;
+}
+  
+  .carrinho {
+    height: 40px;
+    width: 40px;
+    filter: invert(100%) sepia(0%) saturate(0%) brightness(50%);
+    cursor: pointer;
+}
+  
+
+/*------------------------------------
+  7. Barra de Pesquisa - wrapper posicionado
+------------------------------------*/
+.barra-acima {
+  position: fixed;
+  top: -200%;            
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.80);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:11%;
+  transition: top 0.5s ease;
+  overflow-y: scroll;
+  z-index: 100;
+}
+.barra-acima.active {
+  top: 0;
+}
+
+/* ao abrir busca, esconde header (menos logo) */
+header.search-open .menu-area,
+header.search-open .barra-lateral,
+header.search-open .menu-texto,
+header.search-open .area-direita {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+header.search-open {
+  background: rgba(0, 0, 0, 0.90);
+  box-shadow: none;
+  transition: all 0.5s ease;
+}
+header.search-open .logo {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+
+/*------------------------------------
+  8. Input de Busca + Ícones Internos
+------------------------------------*/
+.barra-pesquisa {
+  position: relative;     /* wrapper para posicionar filhos absolutos */
+  display: flex;
+  align-items: center;
+  width: 60vw;
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
+
+.barra-pesquisa .pesquisa {
+  width: 100%;
+  padding: 0.5vw 4vw;     /* espaço para lupa e X */
+  padding-left: 4vw;
+  padding-right: 4vw;
+  border-radius: 20px;
+  border: 3px solid rgba(230, 230, 230, 0.384);
+  background: transparent;
+  color: #fff;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 1.5vw;
+  outline: none;
+}
+.barra-pesquisa .lupa-input {
+  position: absolute;
+  left: 1vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+  pointer-events: none;
+}
+/* X estático dentro da barra de pesquisa */
+.barra-pesquisa .simples-x {
+  position: absolute;
+  right: 1vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+}
+
+
+.barra-pesquisa .simples-x::before,
+.barra-pesquisa .simples-x::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0.25vw;
+  background-color:white ;
+  opacity: 0.6;
+  transform-origin: center;
+}
+
+/* diagonal principal */
+.barra-pesquisa .simples-x::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* diagonal secundária */
+.barra-pesquisa .simples-x::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+
+.simples-x-fechar{
+  position: absolute;
+  right: 1vw;
+  top: -200%;
+  right:-25%;
+  transform: translateY(-50%);
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+}
+
+.simples-x-fechar::before,
+.simples-x-fechar::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.25vw;
+  background-color: white;
+  transform-origin: center;
+}
+
+/* diagonal principal */
+.simples-x-fechar::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* diagonal secundária */
+.simples-x-fechar::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+
+/*------------------------------------
+  9. Categorias Menu
+------------------------------------*/
+.categorias-menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  list-style: none;
+  margin: 1vw 0;
+  padding: 0;
+}
+.categorias-menu li a {
+  color: #fff;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 1.3vw;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.categorias-menu li a:hover {
+  color: #bfa463;
+}
+
+/*------------------------------------
+ 10. Mais Vendido
+------------------------------------*/
+.mais-vendido {
+  text-align: center;
+}
+.mais-vendido h2 {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 2.5vw;
+  color: #fff;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+.card {
+  position: relative;
+  width: 100%;
+  background-color: #1a1a1a;
+  border-radius: 0.5vw;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+
+.card:hover {
+  transform: translateY(-0.5vw);
+}
+
+.product-name {
+  font-family: Harmattan;
+  font-size: 1vw;
+  color: #fff;
+  margin: 1vw 0;
+}
+.star-icon {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  color: #bfa463;
+  font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 10vw;
+    padding: 1vw 3vw;
+  }
+  .header-container {
+    padding: 1vw 3vw;
+  }
+  header img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .card{
+  width: 50px;
+  height: 50px;
+  }
+
+  .lupa,
+  .usuario_icone,
+  .carrinho {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .barra-acima{
+    padding-top: 20%;
+  }
+  .menu-area .menu-texto {
+    font-size: 3vw;
+  }
+ 
+}

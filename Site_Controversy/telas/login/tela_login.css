@@ -1,0 +1,346 @@
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+
+/*------------------------------------
+  1. Variáveis CSS para cores principais
+------------------------------------*/
+:root {
+    --preto: #000;
+    --branco: #fff;
+    --dourado: #C3971E; /* Tom de dourado */
+    --cinza-claro: #ccc;
+}
+
+/*------------------------------------
+  2. Reset básico e estilos globais
+------------------------------------*/
+
+
+*{
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+body {
+    padding: 0;
+    user-select: none;
+    background: var(--branco);
+    font-family: 'Harmattan', sans-serif;
+    color: #333;
+    user-select: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/*------------------------------------
+  3. Cabeçalho Principal
+------------------------------------*/
+header {
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 1px 1px 8px rgb(206, 170, 6);
+    transition: all 0.5s ease;
+    padding-bottom: -10px;
+    width: 100%;
+}
+
+/*------------------------------------
+  4. Container do Cabeçalho e Logo
+------------------------------------*/
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0.7vw 2vw;             
+    height: 8.5vw;
+}
+.logo {
+    position: absolute;         
+    left: 50%;                  
+    top: 50%;                   
+    transform: translate(-50%, -50%);  
+    height: 86%;        
+    width: auto;                
+    object-fit: contain;      
+    padding-top: 3px;   
+}
+
+/*------------------------------------
+  5. Seção de cadastro
+------------------------------------*/
+main {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     /* Centraliza verticalmente */
+  flex: 1;
+}
+
+.login-section {
+  display: flex;
+  flex-direction: row;    /* Mantém lado a lado */
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;   
+  width: 100%;
+  gap: 2rem;             
+}
+
+.image-container,
+.form-container {
+  flex: 1;             
+  width: 100%;          
+}
+
+
+/*-----------------------------------
+  6. Animações e posicionamento de imagens
+------------------------------------*/
+.imagem_central {
+  position: relative;
+  z-index: 2;
+  transition: top 0.3s ease;
+}
+.imagem_central:hover{
+  top: -20px;
+}
+.imagem_inclinada:hover{
+  top: -20px;
+  z-index: 3;
+}
+.imagem_inclinada_2:hover{
+  top: -20px;
+  z-index: 3;
+}
+
+.imagem_central, .imagem_inclinada, .imagem_inclinada_2 {
+    transition: top 0.3s ease;
+    top: 0;
+}
+
+
+.imagem_central:hover,
+.imagem_inclinada:hover,
+.imagem_inclinada_2:hover {
+    top: -20px;
+    z-index: 3;
+}
+
+
+.imagem_inclinada {
+    position: relative;
+    transform: rotate(-10deg);
+    z-index: 1;
+}
+.imagem_inclinada_2 {
+    position: relative;
+    transform: rotate(10deg);
+    z-index: 1;
+}
+
+/*------------------------------------
+  7. Estilização das imagens sobrepostas
+------------------------------------*/
+.image-container {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    left:-5%;
+}
+.image-container img {
+    width: 35%;
+    margin: 0 -65px;
+    border-radius: 8px;
+}
+.image-container .caption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+    left: 510%;
+}
+
+/*------------------------------------
+  8. Formulário de cadastro e títulos
+------------------------------------*/
+
+.form-container{
+  flex:1;
+}
+.form-container h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--dourado);
+}
+.form-container form {
+    margin-left: 25px;
+}
+label {
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+}
+
+/*------------------------------------
+  9. Container para input + ícone
+------------------------------------*/
+.input-icon {
+    position: relative;
+    margin-bottom: 1rem;
+}
+.input-icon i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1rem;
+}
+.input-icon input {
+    width: 90%;
+    padding: 12px 12px 12px 35px; /* espaço para o ícone */
+    border: 1px solid var(--cinza-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+
+/*------------------------------------
+ 10. Foco no input
+------------------------------------*/
+.input-icon input:focus {
+    border-color: var(--dourado);
+}
+
+/*------------------------------------
+ 11. Botão de login
+------------------------------------*/
+.btn-login {
+    background: var(--preto);
+    color: var(--branco);
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: 90%;
+}
+.btn-login:hover {
+    background: #333;
+}
+
+/*------------------------------------
+ 12. Divisor "OU"
+------------------------------------*/
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    font-size: 0.9rem;
+    color: #666;
+}
+.divider span {
+    background: var(--branco);
+    padding: 0 0.5rem;
+    position: relative;
+    z-index: 1;
+    right:5%;
+}
+.divider:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    right: 10%;
+    height: 1px;
+    background: var(--cinza-claro);
+    z-index: 0;
+}
+
+/*------------------------------------
+ 13. Link para login
+------------------------------------*/
+.cadastro-link {
+    position: relative;
+    left: -5%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+.cadastro-link a {
+    color: var(--dourado);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+/*------------------------------------
+ 15. Responsividade
+------------------------------------*/
+@media (min-width: 1369px) {
+    /* Layout horizontal em telas >= 1369px */
+    .login-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .image-container {
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+  /*------------------------------------
+  Ajustes de responsividade para ≤720px
+------------------------------------*/
+@media (max-width: 720px) {
+  /* Empilha seção de login e remove margens extras */
+  .login-section {
+    flex-direction: column;
+  }
+
+  /* Faz image-container e form-container ocuparem 100% da largura */
+
+  .form-container {
+    flex: none;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+    .image-container{
+      flex:none;
+      width: 100%;
+      margin-top:70px;
+      left:3%;
+    }
+
+  /* Imagem central: largura máxima e centralizada */
+  .image-container img {
+    width: 30vw;
+
+    display: inline-block;
+  }
+
+  /* Remove deslocamento lateral do formulário */
+  .form-container form {
+    margin-left: 0;
+  }
+
+  /* Inputs e botão ocupam largura total */
+  .input-icon input,
+  .btn-login {
+    width: 100%;
+  }
+}

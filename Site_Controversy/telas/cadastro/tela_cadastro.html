@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Controversy</title>
+
+    <!-- Fontes Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
+
+    <!-- CSS da página -->
+    <link rel="stylesheet" href="tela_cadastro.css">
+
+    <!-- JavaScript da página -->
+    <script src="tela_cadastro.js" defer></script>
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <nav class="header-container">
+            <!-- Logo da marca -->
+            <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section class="cadastro-section">
+            <!-- Área de imagens à esquerda -->
+            <div class="image-container">
+                <img src="/imagens/imagem_cadastro.jpg" alt="Modelo Controversy 1" class="imagem_inclinada">
+                <img src="/imagens/imagem_cadastro 2.jpg" alt="Modelo Controversy 2" class="imagem_central">
+                <img src="/imagens/imagem_cadastro 3.jpg" alt="Modelo Controversy 3" class="imagem_inclinada_2">
+                <p class="caption">Confira os novos looks Controversy</p>
+            </div>
+
+            <!-- Formulário de cadastro -->
+            <div class="form-container">
+                <h1>Faça seu Cadastro</h1>
+
+                <!-- Div para mensagens de erro ou sucesso -->
+                <div id="message" class="mensagem"></div>
+
+                <form action="#" method="POST">
+                    <!-- Campo de E-mail -->
+                    <label for="email">E-mail</label>
+                    <div class="input-icon">
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+
+                    <!-- Campo de Senha -->
+                    <label for="senha1">Senha</label>
+                    <div class="input-icon">
+                        <input type="password" id="senha1" name="senha1" placeholder="Digite sua senha"
+                            pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
+                    </div>
+
+                    <!-- Campo de Confirmação de Senha -->
+                    <label for="senha2">Confirme a Senha</label>
+                    <div class="input-icon">
+                        <input type="password" id="senha2" name="senha2" placeholder="Confirme sua senha"
+                            pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
+                    </div>
+
+                    <!-- Botão de cadastro -->
+                    <button type="submit" class="btn-cadastrar">CADASTRAR</button>
+
+                    <!-- Divisor com "OU" -->
+                    <div class="divider"><span>OU</span></div>
+
+                    <!-- Link para login -->
+                    <p class="login-link">
+                        Já tem conta na Controversy? <a href="/telas/login/tela_login.html">Faça o LOGIN</a> para conferir todos os looks.
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé da página -->
+ <footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>Controversy • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+  
+</body>
+</html>
