@@ -1,5 +1,5 @@
-@import url(/Site_Controversy/componentes_padrao_css/componentes_padrao.css);
-@import url(/Site_Controversy/componentes_padrao_css/componentes_padrao2.css);
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -81,7 +81,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: invert(100%);
+    filter: invert(32%) sepia(10%) saturate(1908%) hue-rotate(296deg) brightness(88%) contrast(79%);
 }
 
 .texto-container {

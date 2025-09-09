@@ -1,9 +1,8 @@
-@import url(/Site_Controversy/componentes_padrao_css/componentes_padrao.css);
-@import url(/Site_Controversy/componentes_padrao_css/componentes_padrao2.css);
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
 
 /* Estilos Gerais do Corpo */
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: #f7f3f3;
     color: #333;
     margin: 0;
@@ -59,7 +58,7 @@ header {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    filter: brightness(0.7);
+     filter: invert(32%) sepia(10%) saturate(1908%) hue-rotate(296deg) brightness(88%) contrast(79%);
 }
 
 .campo-input {

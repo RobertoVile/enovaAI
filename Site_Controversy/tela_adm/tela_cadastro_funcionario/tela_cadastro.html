@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Cadastro</title>
+    <link rel="stylesheet" href="tela_cadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js" defer></script>
+    <script src="tela_cadastro.js" defer></script>
+    
+</head>
+<body>
+
+       <!-- Header -->
+  <header>
+    <nav class="header-container">
+      
+      <!-- Menu Área -->
+      <div class="menu-area">
+
+        <!-- Menu Container -->
+        <div class="menu-container">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="barra-lateral">
+          <ul>
+            <li><a href="tela-inicial.html">Início</a></li>
+            <li><a href="/telas/login/tela_login.html">Login</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href='telas/ver_mais/casual_ver_mais/casual_ver_mais.html?categoria=Moda%20Casual'>Moda Casual</a></li>
+            <li><a href="#">Moda Corporativa</a></li>
+            <li><a href="#">Moda Festiva</a></li>
+            <li><a href="#">Moda Inverno</a></li>
+          </ul>
+        </nav>
+
+        <p class="menu-texto">MENU</p>
+
+      </div>
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+
+    </nav>
+
+    <!-- Barra Acima (movida para cá, fora da .menu-area) -->
+    <div class="barra-acima">
+
+      <!-- Botão X para fechar -->
+      <div class="x-container">
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+      </div>
+
+      </section>
+    </div>
+  </header>
+      <div class="form-title">
+            Gestão de Cadastro
+        </div>
+
+    <div class="main-container">
+      
+        <form>
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="xxxxxxx" pattern="[A-Za-zÀ-ÿ\s]+" title="(Apenas letras são permitidas)" required>
+                 
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field" style="flex: 2;">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" pattern="\d{11}"  title="CPF deve ter 11 caracteres"  required>
+                  
+                </div>
+                <div class="form-field" style="flex: 1;">
+                    <label for="perfil">Perfil</label>
+                    <select id="perfil">
+                        <option>ADMINISTRADOR</option>
+                         <option>FUNCIONÁRIO</option>
+                    </select>
+                </div>
+            </div>
+<div class="form-row">
+    <div class="form-field">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="xxxxxx" 
+               pattern="(?=.*[A-Z]).{6,}" 
+               title="A senha deve ter pelo menos 6 caracteres e conter pelo menos uma letra maiúscula" 
+               required>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-field">
+        <label for="confirmacao-senha">Confirmação de Senha</label>
+        <input type="password" id="confirmacao-senha" placeholder="xxxxxx" 
+               pattern="(?=.*[A-Z]).{6,}" 
+               title="A senha deve ter pelo menos 6 caracteres e conter pelo menos uma letra maiúscula" 
+               required>
+    </div>
+</div>
+
+
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" class="btn btn-cancel">CANCELAR</button>
+                <button type="submit" class="btn btn-register">CADASTRAR USUÁRIO</button>
+            </div>
+        </form>
+    </div>
+       <footer>
+    <div class="footer-container">
+
+      <div class="footer-info">
+        <h3>Encanta AI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Encanta AI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista encantaai.
+        </p>
+        <span>© 2024 - 2025 encantaai</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:encantaai@gmail.com">encantaai@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/encantaai_br?igsh=bmN0cXhnd3drZmNn">encantaai_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>
