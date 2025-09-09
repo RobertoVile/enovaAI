@@ -7,7 +7,7 @@ async function carregarProdutos() {
      
 
     
-    // usa o seletor de classe (note o ponto antes de product-grid)
+    // usa o seletor de classe
     const resposta = await fetch(`/api/produto?categoria=${encodeURIComponent(categoria)}`);
 
     

@@ -3,12 +3,12 @@
 ------------------------------------*/
 @font-face {
   font-family: 'Hammersmith One';
-  src: url('/Site_Controversy//fontes/HammersmithOne.ttf') format('truetype');
+  src: url('/fontes/HammersmithOne.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Harmattan';
-  src: url('/Site_Controversy/fontes/Harmattan-Regular.ttf') format('truetype');
+  src: url('/fontes/Harmattan-Regular.ttf') format('truetype');
 }
 
 /*------------------------------------
@@ -45,7 +45,7 @@ body {
   3. Header Principal
 ------------------------------------*/
 header {
-  background-image: url(/Site_Controversy/imagens/fundo_header.png);
+  background-image: url(/imagens/fundo_header.png);
   position: sticky;
   top: 0;
   padding-bottom: 40;
