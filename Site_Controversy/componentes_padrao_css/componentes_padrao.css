@@ -164,7 +164,7 @@ header {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-height: 150%;
+  max-height:200%;
   width: auto;
   object-fit: contain;
   padding-top: 3px;

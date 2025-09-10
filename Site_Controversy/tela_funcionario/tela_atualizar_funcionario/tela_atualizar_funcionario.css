@@ -1,0 +1,125 @@
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+html, body{
+    overflow-x: hidden;
+}
+
+header{
+  width: 100%;
+}
+
+footer {
+        width: 92%;
+        margin-top: 20px;
+  
+}
+body {
+     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-title {
+    
+    margin-top: 30px;
+    color: #764A54;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-container {
+    width: 80%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #4a4a4a;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+input:disabled {
+    background-color: #eee;
+    color: #666;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.btn-cancel {
+    background-color: #C80003;
+    color: white;
+}
+
+.btn-save {
+    background-color: #005DC8;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-alterar {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .main-container {
+        padding: 20px;
+        width: 90%;
+    }
+}

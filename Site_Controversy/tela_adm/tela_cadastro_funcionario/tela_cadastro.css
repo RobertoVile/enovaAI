@@ -13,6 +13,16 @@ body{
             min-height: 100vh;
         }
 
+html,body{
+    overflow-x: hidden;
+}
+
+footer {
+        width: 92%;
+        margin-top: 20px;
+  
+}
+
 header {
     width: 100%;
        margin-bottom: 20px;
@@ -112,11 +122,7 @@ header {
             border-radius: 20px;
         }
 
-        footer {
-        width: 100%;
-        margin-top: 20px;
-  
-}
+   
 
         @media (max-width: 600px) {
             .form-row {

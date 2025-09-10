@@ -12,9 +12,18 @@ body {
     display: flex;
     flex-direction: column;
 }
+html, body{
+    overflow-x: hidden;
+}
 
-header {
-    width: 100%;
+header{
+  width: 100%;
+}
+
+footer {
+        width: 92%;
+        margin-top: 20px;
+  
 }
 
 .container-principal {

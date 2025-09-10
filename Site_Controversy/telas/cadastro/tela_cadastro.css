@@ -49,7 +49,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: 1px 1px 8px rgb(206, 170, 6);
+
     transition: all 0.5s ease;
     padding-bottom: -10px;
     width: 100%;
@@ -64,16 +64,6 @@ header {
     justify-content: space-between; 
     padding: 0.7vw 2vw;             
     height: 8.5vw;
-}
-.logo {
-    position: absolute;         
-    left: 50%;                  
-    top: 50%;                   
-    transform: translate(-50%, -50%);  
-    height: 86%;        
-    width: auto;                
-    object-fit: contain;      
-    padding-top: 3px;   
 }
 
 /*------------------------------------
@@ -173,22 +163,74 @@ main {
   8. Formulário de cadastro e títulos
 ------------------------------------*/
 
-.form-container{
-  flex:1;
-}
-.form-container h1 {
-    font-size: 1.8rem;
-    text-align: center;
-    color: var(--dourado);
-}
 .form-container form {
-    margin-left: 25px;
-}
-label {
-    margin: 0.5rem 0 0.2rem;
-    font-weight: bold;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 1rem 1.5rem; /* Espaçamento entre linhas e colunas */
+    margin-left: 0;
 }
 
+.form-container form label {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.input-icon {
+    width: 100%;
+}
+
+/* Campos que ocupam toda a largura */
+#nome,
+#cpf,
+#email,
+#senha1,
+#senha2,
+#complemento {
+    grid-column: span 2; /* Ocupa as duas colunas */
+}
+
+/* Campos que ficam lado a lado */
+#cep,
+#rua,
+#numero,
+#bairro,
+#cidade,
+#estado {
+    width: 100%;
+}
+
+/* Ajustes específicos para pares lado a lado */
+#cep {
+    grid-column: 1 / 2;
+}
+#bairro {
+    grid-column: 2 / 3;
+}
+
+#rua {
+    grid-column: 1 / 2;
+}
+#numero {
+    grid-column: 2 / 3;
+}
+
+#cidade {
+    grid-column: 1 / 2;
+}
+#estado {
+    grid-column: 2 / 3;
+}
+
+/* Botão de cadastro ocupa as duas colunas */
+.btn-cadastrar {
+    grid-column: span 2;
+}
+
+/* Divisor e link de login ocupam duas colunas */
+.divider,
+.login-link {
+    grid-column: span 2;
+}
 /*------------------------------------
   9. Container para input + ícone
 ------------------------------------*/

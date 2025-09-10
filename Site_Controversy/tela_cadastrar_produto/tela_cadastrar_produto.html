@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Produto</title>
+  <link rel="stylesheet" href="tela_cadastrar_produto.css">
+</head>
+<body>
+    <!-- Header -->
+  <header>
+    <nav class="header-container">
+    
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+  
+
+    </nav>
+    </div>
+  </header>
+
+ <!-- Título -->
+  <div class="form-title">
+    <span>Cadastrar Produto</span>
+  </div>
+
+  <!-- Container -->
+
+  <div class="main-container">
+    <form>
+      <!-- Nome -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="nome-produto">Nome do Produto</label>
+          <input type="text" id="nome-produto" placeholder="Ex: Camiseta Polo" required>
+        </div>
+      </div>
+
+      <!-- Tamanho, Cor, Categoria -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="tamanho">Tamanho</label>
+          <select id="tamanho" required>
+            <option value="">Selecione</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="cor">Cor</label>
+          <select id="cor" required>
+            <option value="">Selecione</option>
+            <option value="preto">Preto</option>
+            <option value="branco">Branco</option>
+            <option value="azul">Azul</option>
+            <option value="vermelho">Vermelho</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="">Selecione</option>
+            <option value="short">Short</option>
+            <option value="camisa">Camisa</option>
+            <option value="calca">Calça</option>
+            <option value="acessorio">Acessório</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Preço e Quantidade -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="preco">Preço Unitário</label>
+          <input type="number" id="preco" placeholder="000,00" step="0.01" required>
+        </div>
+        <div class="form-field">
+          <label for="quantidade">Quantidade</label>
+          <input type="number" id="quantidade" placeholder="000" required>
+        </div>
+      </div>
+
+      <!-- Descrição -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" placeholder="Ex: Detalhamento da roupa com material" rows="4"></textarea>
+        </div>
+      </div>
+
+      <!-- Imagem JPG -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="imagem-jpg">Imagem JPG</label>
+          <input type="file" id="imagem-jpg" accept="image/jpeg">
+        </div>
+      </div>
+
+      <!-- Imagem GBL -->
+      <div class="form-row">
+        <div class="form-field">
+          <label for="imagem-gbl">Imagem GBL</label>
+          <input type="file" id="imagem-gbl" accept="image/*">
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="form-buttons">
+        <button type="button" class="btn btn-cancel">CANCELAR</button>
+        <button type="submit" class="btn btn-save">CADASTRAR PRODUTO</button>
+      </div>
+    </form>
+  </div>
+   <footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>EnovaAI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>

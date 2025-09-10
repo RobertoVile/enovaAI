@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+new Cleave('#cpf', {
+    delimiters: ['.', '.', '-'],
+    blocks: [3, 3, 3, 2],
+    numericOnly: true
+});
+
+
+new Cleave('#cep', {
+    delimiters: ['-'],
+    blocks: [4,4],
+    numericOnly: true
+  });
+
+
     const form = document.querySelector('form');
     const messageDiv = document.getElementById('message'); // A div já existe no HTML
 

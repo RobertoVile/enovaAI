@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Funcionário</title>
+    <link rel="stylesheet" href="tela_atualizar_funcionario.css">
+</head>
+<body>
+      <!-- Header -->
+  <header>
+    <nav class="header-container">
+    
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+  
+
+    </nav>
+    </div>
+  </header>
+
+    <div class="form-title">
+        Atualizar Funcionário
+    </div>
+
+    <div class="main-container">
+        <form>
+            <!-- Campo Nome -->
+            <div class="form-row">
+                <div class="form-field" style="flex: 3;">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="xxxxxx" pattern="[A-Za-zÀ-ÿ\s]+" title="(Apenas letras são permitidas)" required>
+                </div>
+            </div>
+
+            <!-- Campo Senha -->
+            <div class="form-row">
+                <div class="form-field" style="flex: 3;">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="xxxxxx" 
+                           pattern="(?=.*[A-Z]).{6,}" 
+                           title="Mínimo 6 caracteres e pelo menos uma letra maiúscula" 
+                           required>
+                </div>
+              
+            </div>
+
+            <!-- Campo Confirmação Senha -->
+            <div class="form-row">
+                <div class="form-field" style="flex: 3;">
+                    <label for="confirmacao-senha">Confirmação de Senha</label>
+                    <input type="password" id="confirmacao-senha" placeholder="xxxxxx" 
+                           pattern="(?=.*[A-Z]).{6,}" 
+                           title="Mínimo 6 caracteres e pelo menos uma letra maiúscula" 
+                           required>
+                </div>
+            </div>
+
+            <!-- Botões principais -->
+            <div class="form-buttons">
+                <button type="button" class="btn btn-cancel">CANCELAR</button>
+                <button type="submit" class="btn btn-save">ATUALIZAR</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>EnovaAI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na EnovaAI   você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista EnovaAI .
+        </p>
+        <span>© 2024 - 2025 EnovaAI </span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:EnovaAI @gmail.com">EnovaAI  @gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/EnovaAI  _br?igsh=bmN0cXhnd3drZmNn">EnovaAI  _br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>

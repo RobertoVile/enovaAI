@@ -6,6 +6,7 @@
     <title>Cadastro - Controversy</title>
 
     <!-- Fontes Google Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
 
@@ -19,7 +20,6 @@
     <!-- Cabeçalho da página -->
     <header>
         <nav class="header-container">
-            <!-- Logo da marca -->
             <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
         </nav>
     </header>
@@ -39,34 +39,87 @@
             <div class="form-container">
                 <h1>Faça seu Cadastro</h1>
 
-                <!-- Div para mensagens de erro ou sucesso -->
                 <div id="message" class="mensagem"></div>
 
                 <form action="#" method="POST">
-                    <!-- Campo de E-mail -->
-                    <label for="email">E-mail</label>
+                    <!-- Nome Completo -->
+                    <label for="nome">Nome Completo</label>
+                    <div class="input-icon">
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <!-- CPF -->
+                    <label for="cpf">CPF</label>
+                    <div class="input-icon">
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+
+                    <!-- Email -->
+                    <label for="email">Email</label>
                     <div class="input-icon">
                         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
                     </div>
 
-                    <!-- Campo de Senha -->
+                    <!-- Senha -->
                     <label for="senha1">Senha</label>
                     <div class="input-icon">
                         <input type="password" id="senha1" name="senha1" placeholder="Digite sua senha"
-                            pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
+                               pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
                     </div>
 
-                    <!-- Campo de Confirmação de Senha -->
-                    <label for="senha2">Confirme a Senha</label>
+                    <!-- Confirmação de Senha -->
+                    <label for="senha2">Confirmação de Senha</label>
                     <div class="input-icon">
                         <input type="password" id="senha2" name="senha2" placeholder="Confirme sua senha"
-                            pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
+                               pattern="(?=.*[A-Z])(?=.*\d).{4,}" title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número" required>
+                    </div>
+
+                    <!-- CEP -->
+                    <label for="cep">CEP</label>
+                    <div class="input-icon">
+                        <input type="text" id="cep" name="cep" placeholder="Ex: 03405030" required>
+                    </div>
+
+                    <!-- Rua -->
+                    <label for="rua">Rua</label>
+                    <div class="input-icon">
+                        <input type="text" id="rua" name="rua" placeholder="Ex: Rua das Almas" required>
+                    </div>
+
+                    <!-- Número -->
+                    <label for="numero">Número</label>
+                    <div class="input-icon">
+                        <input type="text" id="numero" name="numero" placeholder="Ex: 02" required>
+                    </div>
+
+                    <!-- Complemento -->
+                    <label for="complemento">Complemento (opcional)</label>
+                    <div class="input-icon">
+                        <input type="text" id="complemento" name="complemento" placeholder="Detalhar endereço com referências">
+                    </div>
+
+                    <!-- Bairro -->
+                    <label for="bairro">Bairro</label>
+                    <div class="input-icon">
+                        <input type="text" id="bairro" name="bairro" placeholder="Ex: Gleba C" required>
+                    </div>
+
+                    <!-- Cidade -->
+                    <label for="cidade">Cidade</label>
+                    <div class="input-icon">
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: Camaçari" required>
+                    </div>
+
+                    <!-- Estado -->
+                    <label for="estado">Estado</label>
+                    <div class="input-icon">
+                        <input type="text" id="estado" name="estado" placeholder="Ex: Bahia" required>
                     </div>
 
                     <!-- Botão de cadastro -->
                     <button type="submit" class="btn-cadastrar">CADASTRAR</button>
 
-                    <!-- Divisor com "OU" -->
+                    <!-- Divisor "OU" -->
                     <div class="divider"><span>OU</span></div>
 
                     <!-- Link para login -->
@@ -78,34 +131,27 @@
         </section>
     </main>
 
-    <!-- Rodapé da página -->
- <footer>
-    <div class="footer-container">
-
-      <!-- Informações do Footer -->
-      <div class="footer-info">
-        <h3>Controversy • Estilo em Todos os Momentos</h3>
-        <p>
-          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
-          Vista sua melhor versão.<br>
-          Vista Controversy.
-        </p>
-        <span>© 2024 - 2025 Controversy</span>
-      </div>
-
-      <div class="footer-divider"></div>
-
-      <!-- Contato do Footer -->
-      <div class="footer-contato">
-        <h3>Contatos</h3>
-        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
-        <hr>
-        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
-        <hr>
-      </div>
-
-    </div>
-  </footer>
-  
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Controversy • Estilo em Todos os Momentos</h3>
+                <p>
+                  Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+                  Vista sua melhor versão.<br>
+                  Vista Controversy.
+                </p>
+                <span>© 2024 - 2025 Controversy</span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-contato">
+                <h3>Contatos</h3>
+                <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+                <hr>
+                <p>Instagram: <a href="https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+                <hr>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,3 +1,4 @@
+@import url(/componentes_padrao_css/componentes_padrao.css);
 @import url(/componentes_padrao_css/componentes_padrao2.css);
 
 
@@ -16,64 +17,16 @@
 ------------------------------------*/
 
 
-*{
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 
 body {
     padding: 0;
-    user-select: none;
-    background: var(--branco);
     font-family: 'Harmattan', sans-serif;
     color: #333;
     user-select: none;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
+
 }
 
 
-
-/*------------------------------------
-  3. Cabeçalho Principal
-------------------------------------*/
-header {
-    background-color: black;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 1px 1px 8px rgb(206, 170, 6);
-    transition: all 0.5s ease;
-    padding-bottom: -10px;
-    width: 100%;
-}
-
-/*------------------------------------
-  4. Container do Cabeçalho e Logo
-------------------------------------*/
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    padding: 0.7vw 2vw;             
-    height: 8.5vw;
-}
-.logo {
-    position: absolute;         
-    left: 50%;                  
-    top: 50%;                   
-    transform: translate(-50%, -50%);  
-    height: 86%;        
-    width: auto;                
-    object-fit: contain;      
-    padding-top: 3px;   
-}
 
 /*------------------------------------
   5. Seção de cadastro
