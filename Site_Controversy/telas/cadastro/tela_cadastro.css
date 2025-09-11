@@ -1,7 +1,6 @@
 @import url(/componentes_padrao_css/componentes_padrao.css);
 @import url(/componentes_padrao_css/componentes_padrao2.css);
 
-
 /*------------------------------------
   1. Variáveis CSS para cores principais
 ------------------------------------*/
@@ -15,9 +14,7 @@
 /*------------------------------------
   2. Reset básico e estilos globais
 ------------------------------------*/
-
-
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -26,20 +23,16 @@ html, body {
   margin: 0;
 }
 
-
 body {
     padding: 0;
     user-select: none;
     background: var(--branco);
     font-family: 'Harmattan', sans-serif;
     color: #333;
-    user-select: none;
     font-size: 20px;
     display: flex;
     flex-direction: column;
 }
-
-
 
 /*------------------------------------
   3. Cabeçalho Principal
@@ -49,9 +42,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
-
     transition: all 0.5s ease;
-    padding-bottom: -10px;
     width: 100%;
 }
 
@@ -72,13 +63,13 @@ header {
 main {
   display: flex;
   justify-content: center; 
-  align-items: center;     /* Centraliza verticalmente */
+  align-items: center;     
   flex: 1;
 }
 
 .cadastro-section {
   display: flex;
-  flex-direction: row;    /* Mantém lado a lado */
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   max-width: 1200px;   
@@ -89,36 +80,20 @@ main {
 .image-container,
 .form-container {
   flex: 1;             
-  width: 100%;          
+  width: 100%;        
 }
-
 
 /*-----------------------------------
   6. Animações e posicionamento de imagens
 ------------------------------------*/
-.imagem_central {
-  position: relative;
-  z-index: 2;
-  transition: top 0.3s ease;
-}
-.imagem_central:hover{
-  top: -20px;
-}
-.imagem_inclinada:hover{
-  top: -20px;
-  z-index: 3;
-}
-.imagem_inclinada_2:hover{
-  top: -20px;
-  z-index: 3;
+.imagem_central,
+.imagem_inclinada,
+.imagem_inclinada_2 {
+    position: relative;
+    transition: top 0.3s ease, z-index 0.3s ease; /* transição suave no top */
 }
 
-.imagem_central, .imagem_inclinada, .imagem_inclinada_2 {
-    transition: top 0.3s ease;
-    top: 0;
-}
-
-
+/* Hover clássico */
 .imagem_central:hover,
 .imagem_inclinada:hover,
 .imagem_inclinada_2:hover {
@@ -126,16 +101,21 @@ main {
     z-index: 3;
 }
 
-
 .imagem_inclinada {
-    position: relative;
     transform: rotate(-10deg);
+    top: 0;
     z-index: 1;
 }
+
 .imagem_inclinada_2 {
-    position: relative;
     transform: rotate(10deg);
+    top: 0;
     z-index: 1;
+}
+
+.imagem_central {
+    top: 0;
+    z-index: 2;
 }
 
 /*------------------------------------
@@ -144,13 +124,18 @@ main {
 .image-container {
     text-align: center;
     flex: 1;
-    position: relative;
-    left:-5%;
+    position: sticky;
+    top: 0;              
+    left: -5%;
+    margin-top: -800px;  
+ 
 }
 .image-container img {
-    width: 35%;
+    width: 45%;
     margin: 0 -65px;
     border-radius: 8px;
+    transition: top 0.3s ease; /* mantém o hover suave */
+    margin-top: 40px;
 }
 .image-container .caption {
     margin-top: 1rem;
@@ -162,11 +147,10 @@ main {
 /*------------------------------------
   8. Formulário de cadastro e títulos
 ------------------------------------*/
-
 .form-container form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
-    gap: 1rem 1.5rem; /* Espaçamento entre linhas e colunas */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.5rem;
     margin-left: 0;
 }
 
@@ -186,7 +170,7 @@ main {
 #senha1,
 #senha2,
 #complemento {
-    grid-column: span 2; /* Ocupa as duas colunas */
+    grid-column: span 2;
 }
 
 /* Campos que ficam lado a lado */
@@ -199,38 +183,26 @@ main {
     width: 100%;
 }
 
-/* Ajustes específicos para pares lado a lado */
-#cep {
-    grid-column: 1 / 2;
-}
-#bairro {
-    grid-column: 2 / 3;
-}
-
-#rua {
-    grid-column: 1 / 2;
-}
-#numero {
-    grid-column: 2 / 3;
-}
-
-#cidade {
-    grid-column: 1 / 2;
-}
-#estado {
-    grid-column: 2 / 3;
-}
+/* Ajustes específicos */
+#cep { grid-column: 1 / 2; }
+#bairro { grid-column: 2 / 3; }
+#rua { grid-column: 1 / 2; }
+#numero { grid-column: 2 / 3; }
+#cidade { grid-column: 1 / 2; }
+#estado { grid-column: 2 / 3; }
 
 /* Botão de cadastro ocupa as duas colunas */
 .btn-cadastrar {
     grid-column: span 2;
+    width: 100%;
 }
 
-/* Divisor e link de login ocupam duas colunas */
+/* Divisor e link ocupam duas colunas */
 .divider,
 .login-link {
     grid-column: span 2;
 }
+
 /*------------------------------------
   9. Container para input + ícone
 ------------------------------------*/
@@ -246,14 +218,30 @@ main {
     color: #888;
     font-size: 1rem;
 }
-.input-icon input {
-    width: 90%;
-    padding: 12px 12px 12px 35px; /* espaço para o ícone */
+.form-container input {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
     border: 1px solid var(--cinza-claro);
     border-radius: 5px;
     font-size: 1rem;
     font-family: inherit;
     outline: none;
+}
+
+
+.input-icon textarea {
+    width: 100%;
+    padding: 12px 12px 12px 35px; /* igual ao input */
+    border: 1px solid var(--cinza-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    resize: none; /* impede redimensionamento manual, opcional */
+}
+
+.input-icon textarea:focus {
+    border-color: var(--dourado);
 }
 
 /*------------------------------------
@@ -275,7 +263,6 @@ main {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 0.5rem;
-    width: 90%;
 }
 .btn-cadastrar:hover {
     background: #333;
@@ -296,14 +283,13 @@ main {
     padding: 0 0.5rem;
     position: relative;
     z-index: 1;
-    right:5%;
 }
 .divider:before {
     content: "";
     position: absolute;
     top: 50%;
-    left: 1%;
-    right: 10%;
+    left: 0;
+    right: 0;
     height: 1px;
     background: var(--cinza-claro);
     z-index: 0;
@@ -313,8 +299,6 @@ main {
  13. Link para login
 ------------------------------------*/
 .login-link {
-    position: relative;
-    left: -5%;
     text-align: center;
     font-size: 0.9rem;
     color: #555;
@@ -326,13 +310,10 @@ main {
     font-weight: bold;
 }
 
-
-
 /*------------------------------------
- 15. Responsividade
+  15. Responsividade
 ------------------------------------*/
 @media (min-width: 1369px) {
-    /* Layout horizontal em telas >= 768px */
     .login-section {
         display: flex;
         align-items: center;
@@ -344,16 +325,13 @@ main {
     }
 }
 
-  /*------------------------------------
+/*------------------------------------
   Ajustes de responsividade para ≤720px
 ------------------------------------*/
 @media (max-width: 720px) {
-  /* Empilha seção de login e remove margens extras */
-  .cadstro-section {
+  .cadastro-section {
     flex-direction: column;
   }
-
-  /* Faz image-container e form-container ocuparem 100% da largura */
 
   .form-container {
     flex: none;
@@ -362,57 +340,53 @@ main {
     padding: 0;
   }
 
-    .image-container{
-      flex:none;
+  .image-container{
+      flex: none;
       width: 100%;
-      margin-top:70px;
-      left:0;
-    }
+      margin-top: 70px;
+      left: 0;
+      position: static; /* para mobile não interferir */
+  }
 
-  /* Imagem central: largura máxima e centralizada */
   .image-container img {
     width: 30vw;
-
     display: inline-block;
   }
 
-  /* Remove deslocamento lateral do formulário */
   .form-container form {
     margin-left: 0;
   }
 
-  /* Inputs e botão ocupam largura total */
   .input-icon input,
-  .btn-cadastrar{
+  .btn-cadastrar {
     width: 100%;
   }
 }
 
-/* Estilo base para a mensagem */
+/*------------------------------------
+  Mensagens de feedback
+------------------------------------*/
 .mensagem {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    display: none; /* Esconde a mensagem por padrão, só aparece com JS */
+    display: none;
 }
 
-/* Exibir a mensagem quando o JS adicionar conteúdo */
 .mensagem:not(:empty) {
     display: block;
 }
 
-/* Estilo para mensagens de erro */
 .mensagem.erro {
-    background-color: #f8d7da; /* Vermelho claro */
-    color: #721c24; /* Vermelho escuro */
+    background-color: #f8d7da;
+    color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-/* Estilo para mensagens de sucesso */
 .mensagem.sucesso {
-    background-color: #d4edda; /* Verde claro */
-    color: #155724; /* Verde escuro */
+    background-color: #d4edda;
+    color: #155724;
     border: 1px solid #c3e6cb;
 }
