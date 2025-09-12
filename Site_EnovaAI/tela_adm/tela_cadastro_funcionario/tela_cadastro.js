@@ -5,3 +5,8 @@ new Cleave('#cpf', {
     blocks: [3, 3, 3, 2],
     numericOnly: true
 });
+
+
+function voltar(){
+    window.history.back();
+}

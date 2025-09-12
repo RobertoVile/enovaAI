@@ -11,7 +11,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'Site_Controversy')));
+app.use(express.static(path.join(__dirname, 'Site_EnovaAI')));
 
 // Conectar ao banco de dados SQLite
 const dbPath = path.join(__dirname, 'controversy.db');

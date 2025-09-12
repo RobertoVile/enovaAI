@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             cancelBtn.addEventListener('click', () => {
-                window.location.href = 'pagina_de_administracao.html'; // Redireciona para a página de administração
+                 window.history.back(); //Função para voltar pra tela anterior
             });
 
             fileUploadButtons.forEach(button => {

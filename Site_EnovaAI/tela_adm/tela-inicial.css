@@ -17,6 +17,10 @@ header {
     width: 100%;
 }
 
+footer{
+    width: 100%;
+}
+
 .container-principal {
     background-color: transparent;
     border-radius: 10px;
