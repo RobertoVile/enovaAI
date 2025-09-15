@@ -1,5 +1,5 @@
-// encantai_icon_injector.js
-// Injeta: fundo degradê + donut + botão toggle
+// Esse script injeta o pop up da IA nas paginas que carregam esse script
+
 (function () {
   if (document.getElementById('encantai-widget-root')) return;
 
@@ -24,6 +24,10 @@
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     transform-origin: bottom right;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .enc-card.hidden {
@@ -43,39 +47,20 @@
     z-index: 0;
   }
 
-  .enc-donut {
-    position: absolute;
-    right: -36px;
-    top: 40px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    /* Removido o degradê de fundo para usar a imagem */
-    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-    z-index: 1;
-    overflow: hidden; /* Garante que a imagem fique dentro do círculo */
-    
-  }
-
-  .enc-donut img {
-    width: 100%;
-    height: 100%;
-    /* Garante que a imagem preencha o círculo sem distorção */
-    border-radius: 50%; /* Garante que a imagem também seja circular */
-  }
+  /* Remove o bloco .enc-donut do CSS, já que o elemento não existirá mais no HTML */
 
   .enc-toggle-btn {
     position: absolute;
-    top: -45px; /* Ajustado para acomodar o novo tamanho */
-    right: -45px; /* Ajustado para acomodar o novo tamanho */
-    background: none; /* Fundo removido */
-    border: none; /* Borda removida */
-    border-radius: 0; /* Borda arredondada removida */
-    width: 90px; /* Aumentado o tamanho do botão */
-    height: 90px; /* Aumentado o tamanho do botão */
+    top: -45px;
+    right: -45px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    width: 90px;
+    height: 90px;
     cursor: pointer;
     z-index: 10;
-    box-shadow: none; /* Sombra removida */
+    box-shadow: none;
     transition: all 0.3s ease-in-out;
     display: flex;
     align-items: center;
@@ -100,39 +85,70 @@
     position: fixed;
     transform: none;
   }
+  
+  .enc-main-image-container {
+      text-align: center;
+      margin: 0;
+      width: 100%;
+  }
+
+  .enc-main-image {
+      max-width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+  }
+
+  @media (max-width: 300px) {
+      #encantai-widget-root {
+          width: 100%;
+          max-width: 100%;
+      }
+  }
   `;
+
+  const s_model_viewer = document.createElement('script');
+  s_model_viewer.setAttribute('type', 'module');
+  s_model_viewer.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js');
+  document.head.appendChild(s_model_viewer);
 
   const html = `
   <div class="enc-card" id="enc-card">
     <div class="enc-top-decor"></div>
+    <div class="enc-main-image-container">
+      <model-viewer 
+        class="enc-main-image"
+        src="./caminho/para/seu/modelo.glb"
+        alt="Modelo 3D"
+        camera-controls
+        auto-rotate
+        ar>
+      </model-viewer>
+    </div>
   </div>
   <button class="enc-toggle-btn" id="enc-toggle-btn">
-    <!-- Ícone para o estado 'abrir' -->
     <img id="open-icon" class="icon" src="./imagens/botao_popup.png" alt="Abrir popup">
     <img id="close-icon" class="icon hidden" src="./imagens/botao_popup2.png" alt="Fechar popup">
   </button>
   `;
-
-  // injeta css
+  
   const s = document.createElement('style');
   s.id = 'encantai-widget-style';
   s.textContent = css;
   document.head.appendChild(s);
-
-  // injeta root
+  
   const root = document.createElement('div');
   root.id = 'encantai-widget-root';
   root.innerHTML = html;
   document.body.appendChild(root);
 
-  // lógica de toggle
   const card = document.getElementById('enc-card');
   const btn = document.getElementById('enc-toggle-btn');
   const openIcon = document.getElementById('open-icon');
   const closeIcon = document.getElementById('close-icon');
   const storageKey = 'encantai-widget-state';
 
-  // Verifica o estado no localStorage e aplica
   const storedState = localStorage.getItem(storageKey);
   const isHidden = storedState === 'hidden';
 
@@ -146,16 +162,19 @@
     closeIcon.classList.add('hidden');
   }
 
-  // Adiciona o listener
   btn.addEventListener('click', () => {
-    const currentStateIsHidden = card.classList.toggle('hidden');
-    btn.classList.toggle('fixed-position', currentStateIsHidden);
-    
-    // Alterna a visibilidade das imagens
-    openIcon.classList.toggle('hidden', !currentStateIsHidden);
-    closeIcon.classList.toggle('hidden', currentStateIsHidden);
-
-    // Salva o novo estado no localStorage
-    localStorage.setItem(storageKey, currentStateIsHidden ? 'hidden' : 'visible');
+    if (card.classList.contains('hidden')) {
+      card.classList.remove('hidden');
+      btn.classList.remove('fixed-position');
+      openIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      localStorage.setItem(storageKey, 'visible');
+    } else {
+      card.classList.add('hidden');
+      btn.classList.add('fixed-position');
+      openIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      localStorage.setItem(storageKey, 'hidden');
+    }
   });
 })();

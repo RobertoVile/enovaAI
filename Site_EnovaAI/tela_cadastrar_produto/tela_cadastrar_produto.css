@@ -79,12 +79,15 @@ select {
     border: 1px solid #767676;
     border-radius: 4px;
     font-size: 1rem;
-    color: #ffffff;
+    color: black;
     font-family: 'Cutive Mono', monospace;
 }
 
+
+
 select{
     background-color: #764A54;
+    color: white;
 }
 
 textarea {

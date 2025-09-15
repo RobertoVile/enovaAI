@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Produto</title>
+ 
+       <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js" defer></script>
     <link rel="stylesheet" href="tela_cadastrar_produto.css">
     <script src="tela_cadastrar_produto.js"></script>
 </head>
@@ -63,14 +65,14 @@
                 <div class="form-field">
                     <label for="preco">Preço Unitário</label>
                     <div class="input-group">
-                        <input type="number" id="preco" placeholder="000.00" step="0.01" required>
+                        <input type="text" id="preco" placeholder="000.00" step="0.01" required>
                         <span class="prefix">R$</span>
                     </div>
                 </div>
                 <div class="form-field">
                     <label for="quantidade">Quantidade</label>
                     <div class="input-group">
-                        <input type="number" id="quantidade" placeholder="000" required>
+                        <input type="text" id="quantidade" placeholder="000" required>
                         <span class="sufix">ESTOQUE</span>
                     </div>
                 </div>
@@ -107,7 +109,7 @@
 
             <div class="form-buttons">
                 <button type="button" class="btn btn-cancel" id="cancel-btn">CANCELAR</button>
-                <button type="submit" class="btn btn-save" id="submit-btn">CADASTRAR PRODUTO</button>
+                <button type="submit" class="btn btn-save" id="submit-btn" onclick="showErrorModal('ERRO AO CADASTRAR!', 'TENTE NOVAMENTE')">CADASTRAR PRODUTO</button>
             </div>
         </form>
     </div>
@@ -134,4 +136,5 @@
         </div>
     </footer>
 </body>
+   <script src="./../pop_up_resultado.js" defer></script>
 </html>
