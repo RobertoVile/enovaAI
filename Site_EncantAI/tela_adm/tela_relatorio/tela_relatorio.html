@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Vendas</title>
+    <link rel="stylesheet" href="tela_relatorio.css">
+    <script src="./tela_relatorio.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+    <header>
+    <nav class="header-container">
+    
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+  
+
+    </nav>
+    </div>
+  </header>
+<div class="main-container">
+
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-semibold text-gray-800">Relatório de Vendas</h2>
+    </div>
+
+    <div class="filter-container">
+        <label class="text-sm font-medium text-gray-600">SELECIONE FILTRO</label>
+        <div class="flex items-center space-x-4">
+            <select class="rounded-lg border border-gray-300 p-2 text-sm">
+                <option>MAIS VENDIDO</option>
+                <option>MENOS VENDIDO</option>
+            </select>
+            <input type="date" class="rounded-lg border border-gray-300 p-2 text-sm">
+        </div>
+    </div>
+
+    <h3 class="text-xl font-medium text-gray-800 mb-4 text-center text-decoration-underline">Produto Mais Vendido (Top 3)</h3>
+
+    <div class="overflow-x-auto">
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th class="w-1/12">TOP</th>
+                    <th class="w-2/12">IMAGEM</th>
+                    <th class="w-4/12">NOME DO PRODUTO</th>
+                    <th class="w-2/12">QTD</th>
+                    <th class="w-3/12">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">1</td>
+                    <td><img src="https://placehold.co/50x50/f0f0f0/6b7280?text=?" alt="Imagem do Produto"></td>
+                    <td>XXXXXXXXXXXX<br>XXXXXXXXXXXXXX</td>
+                    <td>27</td>
+                    <td>R$ 450,00</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td><img src="https://placehold.co/50x50/f0f0f0/6b7280?text=?" alt="Imagem do Produto"></td>
+                    <td><img src="https://placehold.co/50x50/f0f0f0/6b7280?text=?" alt="Imagem do Produto"></td>
+                    <td>20</td>
+                    <td>R$ 350,00</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td><img src="https://placehold.co/50x50/f0f0f0/6b7280?text=?" alt="Imagem do Produto"></td>
+                    <td><img src="https://placehold.co/50x50/f0f0f0/6b7280?text=?" alt="Imagem do Produto"></td>
+                    <td>14</td>
+                    <td>R$ 203,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="total-row-container">
+        <table class="total-table">
+            <thead>
+                <tr>
+                    <th>VALOR TOTAL das Vendas</th>
+                    <th>1405,76</th>
+                    <th>R$</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="mt-8 text-center">
+        <button class="bg-red-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition duration-300" onclick="voltar()">
+            VOLTAR
+        </button>
+    </div>
+
+ 
+</div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>EncantaAI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na EncantaAI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista EncantaAI.
+        </p>
+        <span>© 2024 - 2025 EncantaAI</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>
