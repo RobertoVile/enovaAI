@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantAI - Cartão de Crédito</title>
+    <link rel="stylesheet" href="../styles/cartao.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </button>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,..." alt="EncantAI">
+            </div>
+            
+            <div class="nav-right">
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Card Form -->
+                <div class="card-form">
+                    <h2>Adicione um Cartão</h2>
+                    
+                    
+                    <!-- New Card Option -->
+                    <div class="new-card-option">
+                        <input type="radio" id="newCard" name="cardChoice" value="new" checked>
+                        <label for="newCard">
+                            <div class="card-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <span>Novo Cartão de Crédito</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Card Form Fields -->
+                    <div class="card-fields" id="cardFields">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="cardNumber">Número do Cartão</label>
+                                <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="cardName">Nome Completo</label>
+                                <input type="text" id="cardName" placeholder="Nome como está no cartão">
+                            </div>
+                        </div>
+                        
+                        <!-- Card Visual -->
+                        <div class="card-visual">
+                            <div class="credit-card">
+                                <div class="card-chip">
+                                    <div class="chip-lines">
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                    </div>
+                                </div>
+                                <div class="card-number-display">•••• •••• •••• ••••</div>
+                                <div class="card-name-display">Nome Sobrenome</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Data de Vencimento</label>
+                                <input type="text" id="expiryDate" placeholder="MM/AAAA" maxlength="7">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">Código de Segurança</label>
+                                <input type="text" id="cvv" placeholder="CVV" maxlength="4">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="cardHolderCpf">CPF do Titular do Cartão</label>
+                                <input type="text" id="cardHolderCpf" placeholder="000.000.000-00" maxlength="14">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-continuar" onclick="goToCardPayment()">CONTINUAR</button>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Resumo da Compra</h3>
+                    
+                    <div class="summary-item">
+                        <span>Produto</span>
+                        <span id="produto">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="frete">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>EncantAI - Estilo em Todos os Momentos</h4>
+                    <p>Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade. Vista sua melhor versão. Vista EncantAI.</p>
+                    <p class="copyright">© 2025 EncantAI</p>
+                </div>
+                
+                <div class="footer-right">
+                    <h4>Contatos</h4>
+                    <p>encantaai@gmail.com</p>
+                    <p>Instagram: EncantAI_br</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nome só aceita letras e espaços
+        document.getElementById('cardName').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '');
+            const display = document.querySelector('.card-name-display');
+            display.textContent = e.target.value || 'Nome Sobrenome';
+        });
+
+        // Card Number Mask
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 16) {
+                value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+            }
+            e.target.value = value;
+            document.querySelector('.card-number-display').textContent = value || '•••• •••• •••• ••••';
+        });
+
+        // Expiry Date Mask
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 6) {
+                value = value.replace(/(\d{2})(\d)/, '$1/$2');
+            }
+            e.target.value = value;
+        });
+
+        // CVV Mask
+        document.getElementById('cvv').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // CPF Mask
+        document.getElementById('cardHolderCpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
+        // Mostrar ou esconder campos dependendo da escolha
+        const radios = document.querySelectorAll('input[name="cardChoice"]');
+        const cardFields = document.getElementById('cardFields');
+        radios.forEach(r => {
+            r.addEventListener('change', function() {
+                cardFields.style.display = (this.value === "new") ? "block" : "none";
+            });
+        });
+
+        function goToCardPayment() {
+            const choice = document.querySelector('input[name="cardChoice"]:checked').value;
+
+            if (choice !== "new") {
+                // cartão salvo
+                sessionStorage.setItem('totalCompra', totalCompra());
+                window.location.href = 'cartao_pagamento.html';
+                return;
+            }
+
+            // novo cartão → validação
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardName = document.getElementById('cardName').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            const cpf = document.getElementById('cardHolderCpf').value;
+            
+            if (!cardNumber || !cardName || !expiryDate || !cvv || !cpf) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            if (cardNumber.replace(/\s/g, '').length < 16) {
+                alert('Número do cartão deve ter 16 dígitos.');
+                return;
+            }
+
+            sessionStorage.setItem('cardData', JSON.stringify({
+                cardNumber, cardName, expiryDate, cvv, cpf
+            }));
+
+            sessionStorage.setItem('totalCompra', totalCompra());
+            window.location.href = 'cartao_pagamento.html';
+        }
+
+        // Função para calcular total
+        function totalCompra() {
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            return produto + frete;
+        }
+
+        // Atualiza resumo da compra na tela
+        window.addEventListener('load', function() {
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            const total = produto + frete;
+
+            document.getElementById("produto").textContent = 
+                produto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("frete").textContent = 
+                frete.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("total").textContent = 
+                total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        });
+    </script>
+</body>
+</html>

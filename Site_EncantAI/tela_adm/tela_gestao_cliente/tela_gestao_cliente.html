@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuário</title>
+    <link rel="stylesheet" href="tela_gestao_cliente.css">
+    <script src="tela_gestao_cliente.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav class="header-container">
+            <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+        </nav>
+    </header>
+
+<div class="cliente-management-section">
+        <div class="cliente-management-title">
+            <span>Gestão de Usuário</span>
+        </div>
+        <div class="cliente-list-container">
+             <!--Modelo da div com cada card de funcionário pesquisado-->
+            <div class="cliente-card">
+                <div class="cliente-info">
+                    
+                    <img src="/imagens/icone-perfil.png" alt="Exemplo" class="cliente-icon">
+                    <div class="cliente-text">
+                        <p class="cliente-name">Nome exemplo</p>
+                        <p class="cliente-email">Email@gmail.com</p>
+                    </div>
+                </div>
+
+                <!--Aqui colocaria a função para pegar o cliente -->
+                
+                <button class="btn btn-more" onclick="avancar()">VER MAIS</button>
+            </div>
+            
+            </div>
+
+        <div class="cliente-management-buttons">
+            <button class="btn btn-back" onclick="voltar()">VOLTAR</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>EncantAI • Estilo em Todos os Momentos</h3>
+                <p>
+                    Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+                    Vista sua melhor versão.<br>
+                    Vista EncantaAI.
+                </p>
+                <span>© 2024 - 2025 EncantAI</span>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-contato">
+                <h3>Contatos</h3>
+                <p>Email: <a href="mailto:encantai@gmail.com">encantai@gmail.com</a></p>
+                <hr>
+                <p>Instagram: <a href="https://www.instagram.com/encantai_br?igsh=bmN0cXhnd3drZmNn">encatai_br</a></p>
+                <hr>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

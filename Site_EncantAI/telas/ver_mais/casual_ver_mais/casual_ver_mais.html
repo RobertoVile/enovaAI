@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controvsery - Moda Casual</title>
+  <script src="./encantai_pop_up_modelo.js" defer></script>
+
+  <!-- Estilo -->
+  <link rel="stylesheet" href="/telas/ver_mais/casual_ver_mais/casual_ver_mais.css"/>
+
+  <!-- Script -->
+  <script type="module" src="/telas/ver_mais/ver_mais.js" defer></script>
+
+  <script src="/telas/ver_mais/casual_ver_mais/Interligacao_com_front/Produtos.js" defer></script>
+
+ <script type="module"  src="/produtos_da_busca.js" defer></script>
+
+</head>
+
+<body>
+
+  <!-- =======================
+       Header
+  ======================= -->
+  <header>
+    <nav class="header-container">
+      
+      <!-- Menu Área -->
+      <div class="menu-area">
+
+        <!-- Menu Container -->
+        <div class="menu-container">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="barra-lateral">
+          <ul>
+            <li><a href="../../../tela-inicial.html">Início</a></li>
+            <li><a href="../../login/tela_login.html">Login</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href='telas/ver_mais/casual_ver_mais/casual_ver_mais.html?categoria=Moda%20Casual'>Moda Casual</a></li>
+            <li><a href="#">Moda Corporativa</a></li>
+            <li><a href="#">Moda Festiva</a></li>
+            <li><a href="#">Moda Inverno</a></li>
+          </ul>
+        </nav>
+
+        <!-- Texto Menu -->
+        <p class="menu-texto">MENU</p>
+
+        <!-- Ícone Lupa -->
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa">
+
+      </div>
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+      <!-- Área Direita -->
+      <div class="area-direita">
+        <img src="/imagens/user_icon.png" alt="Usuário" class="usuario_icone">
+        <img src="/imagens/carrinho.png" alt="Carrinho" class="carrinho" onclick="location.href='telas/carrinho/carrinho.html'">
+      </div>
+
+    </nav>
+
+    <!-- Barra Acima -->
+    <div class="barra-acima">
+
+      <!-- Botão X para fechar -->
+      <div class="x-container">
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+      </div>
+
+      <!-- Barra de Pesquisa -->
+      <div class="barra-pesquisa">
+        <input class="pesquisa" type="text" placeholder="Buscar produtos..." />
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa-input">
+        <div class="simples-x-fechar"></div>
+        <div class="simples-x"></div>
+      </div>
+
+      <!-- Menu de Categorias -->
+      <nav class="categorias-menu">
+        <ul>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Corporativa</a></li>
+          <li><a href="#">Festiva</a></li>
+          <li><a href="#">Inverno</a></li>
+        </ul>
+      </nav>
+
+      <!-- Seção Mais Vendidos -->
+      <section class="mais-vendido">
+        <h2>Mais Vendidos</h2>
+        <div class="card-container">
+
+         
+
+        </div>
+      </section>
+
+    </div>
+  </header>
+
+  <!-- =======================
+       Conteúdo Principal
+  ======================= -->
+  <div class="content-wrapper">
+
+    <!-- Banner -->
+    <section class="banner">
+      <img src="/imagens/moda_casual_vermais.jpg" alt="Moda Casual Controvsery" class="primeira_imagem">
+      <h1 class="moda-texto">Moda Casual</h1>
+    </section>
+
+    <h1 class="moda-texto2">Moda Casual Controversy</h1>
+
+    <!-- =======================
+         Filtros
+    ======================= -->
+    <!-- <div class="filter-panel">
+
+       Filtro: Saia 
+      <div class="filter-section">
+        <h3 class="filter-title">Saia <span class="arrow">&#9660;</span></h3>
+        <div class="filter-options">
+          <ul>
+            <li>Básica</li>
+            <li>Estampada</li>
+            <li>Manga Longa</li>
+            <li>Manga Curta</li>
+          </ul>
+          <div class="filter-section-tamanho">
+            <h4 class="filter-title-opcao">Tamanhos <span class="arrow-opcao">&#9660;</span></h4>
+            <div class="opcoes-de-tamanho">
+              <ul>
+                <li>PP</li>
+                <li>P</li>
+                <li>M</li>
+                <li>G</li>
+                <li>GG</li>
+                <li>XG</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       Filtro: Vestido 
+      <div class="filter-section">
+        <h3 class="filter-title">Vestido <span class="arrow">&#9660;</span></h3>
+        <div class="filter-options">
+          <ul>
+            <li>Casual</li>
+            <li>Festa</li>
+            <li>Curto</li>
+            <li>Longo</li>
+          </ul>
+          <div class="filter-section-tamanho">
+            <h4 class="filter-title-opcao">Tamanhos <span class="arrow-opcao" style="color: #fff;">&#9660;</span></h4>
+            <div class="opcoes-de-tamanho">
+              <ul>
+                <li>PP</li>
+                <li>P</li>
+                <li>M</li>
+                <li>G</li>
+                <li>GG</li>
+                <li>XG</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      Filtro: Blusa 
+      <div class="filter-section">
+        <h3 class="filter-title">Blusa <span class="arrow">&#9660;</span></h3>
+        <div class="filter-options">
+          <ul>
+            <li>Básica</li>
+            <li>Cropped</li>
+            <li>Regata</li>
+            <li>Manga Longa</li>
+          </ul>
+          <div class="filter-section-tamanho">
+            <h4 class="filter-title-opcao">Tamanhos <span class="arrow-opcao">&#9660;</span></h4>
+            <div class="opcoes-de-tamanho">
+              <ul>
+                <li>PP</li>
+                <li>P</li>
+                <li>M</li>
+                <li>G</li>
+                <li>GG</li>
+                <li>XG</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      Filtro: Calça 
+      <div class="filter-section">
+        <h3 class="filter-title">Calça <span class="arrow">&#9660;</span></h3>
+        <div class="filter-options">
+          <ul>
+            <li>Jeans</li>
+            <li>Legging</li>
+            <li>Pantacourt</li>
+            <li>Alfaiataria</li>
+          </ul>
+          <div class="filter-section-tamanho">
+            <h4 class="filter-title-opcao">Tamanhos <span class="arrow-opcao">&#9660;</span></h4>
+            <div class="opcoes-de-tamanho">
+              <ul>
+                <li>34</li>
+                <li>36</li>
+                <li>38</li>
+                <li>40</li>
+                <li>42</li>
+                <li>44</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+    SEÇÃO DE FILTROS REMOVIDA PARA APRIMORAMENTO TARDIO
+    -->
+
+
+
+    <!-- =======================
+         Produtos
+    ======================= -->
+    <section class="product-grid">
+      
+  
+      <!-- Repetir... (com o back-end) -->
+    </section>
+
+    <!-- =======================
+         Rodapé
+    ======================= -->
+    <footer>
+      <div class="footer-container">
+
+        <!-- Informações do Footer -->
+        <div class="footer-info">
+          <h3>Controversy • Estilo em Todos os Momentos</h3>
+          <p>
+            Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+            Vista sua melhor versão.<br>
+            Vista Controversy.
+          </p>
+          <span>© 2024 - 2025 Controversy</span>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <!-- Contato do Footer -->
+        <div class="footer-contato">
+          <h3>Contatos</h3>
+          <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+          <hr>
+          <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+          <hr>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+  
+</body>
+</html>

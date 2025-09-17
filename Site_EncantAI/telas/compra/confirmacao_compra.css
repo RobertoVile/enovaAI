@@ -1,0 +1,140 @@
+/*Importações*/
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+
+/* Estilos gerais */
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+.content-wrapper {
+  min-height: 100vh; /* Ocupa toda a altura da tela */
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Contêiner principal com Flexbox */
+.checkout-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+/* Estilo comum para cada coluna */
+.container-entrega, .resumo-compra {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  flex: 1; /* cada coluna ocupa espaço igual */
+}
+
+/* Formatação das opções de entrega */
+.borda{
+    border: 2px #CCCCCC solid;
+    border-radius: 18px;
+    padding: 10px;
+    background-color: #F5F5F5;
+    margin-top: 5px;
+}
+.opcao-entrega {
+  
+  margin-bottom: 15px;
+}
+.opcao-entrega label {
+    cursor: pointer;
+}
+.opcao-entrega input {
+  margin-right: 8px;
+}
+.titulo-opcao {
+  font-weight: bold;
+}
+.subtitulo-opcao {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+  padding-left: 30px;
+}
+
+/* Link "Adicionar novo endereço" em azul */
+.link-adicionar-endereco {
+  display: inline-block;
+  margin-top: 0px;
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.link-adicionar-endereco:hover {
+  text-decoration: underline;
+}
+
+/* Rótulo "Grátis" em verde */
+.rotulo-gratis {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Botão CONTINUAR centralizado */
+.botao-continuar {
+  display: block;
+  margin: 20px auto 0;
+  padding: 12px 24px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.resumo-compra ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resumo-item {
+  display: flex;
+  justify-content: space-between; /* Descrição à esquerda, preço à direita */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.resumo-item .preco {
+  min-width: 100px;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+}
+
+.resumo-item .descricao {
+  flex: 1;
+  color: #666;
+}
+
+.resumo-item.total .descricao {
+  font-weight: bold;
+  color: #000;
+}
+
+.resumo-item.total .preco {
+  font-size: 1.2em;
+}
+
+.divisor{
+  width: auto;
+  background-color: black;
+  height: 1px;
+  opacity: 0.3;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantAI - Boleto Pagamento</title>
+    <link rel="stylesheet" href="../styles/boleto.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- jsPDF para geração do PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </button>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8dGV4dCB4PSIxMCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzY2NDQ2NiI+ZW5jYW50QUk8L3RleHQ+Cjx0ZXh0IHg9IjEwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM5OTk5OTkiPnNlbWlqb2lhcyBmaW5hczwvdGV4dD4KPHN2Zz4=" alt="EncantAI">
+            </div>
+            
+            <div class="nav-right">
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Boleto Payment -->
+                <div class="boleto-payment">
+                    <h2>Pagamento</h2>
+                    
+                    <!-- Payment Method Selected -->
+                    <div class="payment-selected">
+                        <div class="payment-icon boleto-icon">
+                            <i class="fas fa-barcode"></i>
+                        </div>
+                        <span>BOLETO</span>
+                    </div>
+                    
+                    <!-- Boleto Instructions -->
+                    <div class="boleto-instructions">
+                        <h3>Você tem 2 dias para pagar</h3>
+                        <p>Para pagar, copie o código ou escaneie o boleto com o app do seu banco.</p>
+                        <p>O pagamento pode levar até 3 dias para ser confirmado.</p>
+                    </div>
+                    
+                    <!-- Boleto Visual -->
+                    <div class="boleto-visual">
+                        <div class="boleto-title">BOLETO</div>
+                    </div>
+                    
+                    <!-- Boleto Code Section -->
+                    <div class="boleto-code-section">
+                        <label for="boletoCode">Código BOLETO</label>
+                        <div class="code-input-group">
+                            <input type="text" id="boletoCode" value="23793.39126 60007.772589 71000.000005 8 97570000100000" readonly>
+                            <button class="btn-copiar" onclick="copyBoletoCode()">COPIAR</button>
+                        </div>
+                    </div>
+                    
+                    <!-- PDF Download -->
+                    <div class="pdf-download-section">
+                        <button class="btn-baixar-pdf" onclick="downloadBoletoPDF()">
+                            <i class="fas fa-download"></i>
+                            Baixar Boleto em PDF
+                        </button>
+                    </div>
+                    
+                    <button class="btn-confirmar" onclick="confirmBoletoPayment()">CONFIRMAR</button>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Resumo da Compra</h3>
+                    
+                    <div class="summary-item">
+                        <span>Produto</span>
+                        <span id="produto">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="frete">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>EncantAI - Estilo em Todos os Momentos</h4>
+                    <p>Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade. Vista sua melhor versão. Vista EncantAI.</p>
+                    <p class="copyright">© 2025 EncantAI</p>
+                </div>
+                
+                <div class="footer-right">
+                    <h4>Contatos</h4>
+                    <p>encantaai@gmail.com</p>
+                    <p>Instagram: EncantAI_br</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copiar código do boleto
+        function copyBoletoCode() {
+            const boletoCode = document.getElementById('boletoCode');
+            boletoCode.select();
+            boletoCode.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(boletoCode.value).then(() => {
+                const btn = document.querySelector('.btn-copiar');
+                const originalText = btn.textContent;
+                btn.textContent = 'COPIADO!';
+                btn.style.backgroundColor = '#27ae60';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '#3498db';
+                }, 2000);
+            }).catch(() => {
+                document.execCommand('copy');
+                alert('Código do boleto copiado!');
+            });
+        }
+
+        // Confirmar pagamento
+        function confirmBoletoPayment() {
+            alert('Boleto gerado com sucesso!\nVocê tem 2 dias para realizar o pagamento.\nApós o pagamento, o status será atualizado em até 2 dias úteis.');
+        }
+
+        // Puxar valores do localStorage e calcular desconto
+        window.addEventListener('load', function() {
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            const total = produto + frete;
+
+            document.getElementById("produto").textContent = 
+                produto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("frete").textContent = 
+                frete.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("desconto").textContent = 
+                "-" + desconto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("total").textContent = 
+                total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        });
+
+        // Gerar PDF do boleto com valor correto
+        function downloadBoletoPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            const subtotal = produto + frete;
+            let desconto = 0;
+            if(subtotal > 100) desconto = subtotal * 0.10;
+            const total = subtotal - desconto;
+
+            const currentDate = new Date();
+            const dueDate = new Date(currentDate.getTime() + (2 * 24 * 60 * 60 * 1000));
+            const boletoNumber = '23793391266000777258971000000005897570000100000';
+            const documentNumber = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+
+            // Cabeçalho do PDF
+            doc.setFont('helvetica');
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'bold');
+            doc.text('BANCO HONDA S.A.', 20, 25);
+            doc.text('341-7', 160, 25);
+            doc.setLineWidth(0.5);
+            doc.line(20, 30, 190, 30);
+
+            // Beneficiário
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.text('Beneficiário:', 20, 45);
+            doc.setFont('helvetica', 'bold');
+            doc.text('ENCANT.AI LTDA', 20, 52);
+            doc.setFont('helvetica', 'normal');
+            doc.text('CNPJ: 12.345.678/0001-90', 20, 59);
+            doc.text('Endereço: Rua das Semijoias, 123 - São Paulo - SP', 20, 66);
+
+            // Pagador
+            doc.text('Pagador:', 20, 85);
+            doc.setFont('helvetica', 'bold');
+            doc.text('CLIENTE ENCANT.AI', 20, 92);
+            doc.setFont('helvetica', 'normal');
+            doc.text('CPF: 000.000.000-00', 20, 99);
+
+            // Documento
+            doc.text(`Número do Documento: ${documentNumber}`, 20, 115);
+            doc.text(`Data de Vencimento: ${dueDate.toLocaleDateString('pt-BR')}`, 20, 122);
+            doc.text(`Valor do Documento: ${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`, 20, 129);
+            doc.text(`(-) Desconto/Abatimento: ${desconto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`, 20, 136);
+            doc.text('(+) Mora/Multa: R$ 0,00', 20, 143);
+            doc.text('(+) Outros Acréscimos: R$ 0,00', 20, 150);
+            doc.setFont('helvetica', 'bold');
+            doc.text(`(=) Valor Cobrado: ${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`, 20, 157);
+
+            // Instruções
+            doc.setFont('helvetica', 'normal');
+            doc.text('Instruções:', 20, 175);
+            doc.text('- Pagamento até o vencimento em qualquer banco', 20, 182);
+            doc.text('- Após o vencimento cobrar multa de 2% e juros de 1% ao dia', 20, 189);
+            doc.text('- Em caso de dúvidas entre em contato: encant.ai@gmail.com', 20, 196);
+
+            // Linha pontilhada
+            doc.setLineDashPattern([2, 2], 0);
+            doc.line(20, 210, 190, 210);
+            doc.setLineDashPattern([], 0);
+
+            // Ficha de compensação
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.text('FICHA DE COMPENSAÇÃO', 75, 225);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8);
+            doc.text('Código de Barras:', 20, 240);
+            doc.setFont('courier', 'bold');
+            doc.setFontSize(14);
+            doc.text('||||| |||| ||||| |||| ||||| |||| ||||| ||||', 20, 250);
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.text(boletoNumber.replace(/(\d{5})(\d{5})(\d{5})(\d{6})(\d{5})(\d{6})(\d{1})(\d{14})/, 
+                     '$1.$2 $3.$4 $5.$6 $7 $8'), 20, 265);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10);
+            doc.text(`Vencimento: ${dueDate.toLocaleDateString('pt-BR')}`, 130, 240);
+            doc.text(`Valor: ${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`, 130, 250);
+            doc.text(`Doc.: ${documentNumber}`, 130, 260);
+
+            doc.setFontSize(8);
+            doc.text('Autenticação Mecânica - Ficha de Compensação', 20, 285);
+            doc.text('Recibo do Pagador', 150, 285);
+
+            doc.save(`boleto-encantai-${documentNumber}.pdf`);
+            
+            // Feedback botão
+            const btn = document.querySelector('.btn-baixar-pdf');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> PDF Baixado!';
+            btn.style.backgroundColor = '#27ae60';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '#e67e22';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

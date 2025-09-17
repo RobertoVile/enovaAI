@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Pagamento</title>
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="pagamento.css">
+
+  <link rel="stylesheet" href="pagamento_carrinho.css">
+  <!-- JS principal-->
+  <script type="module" src="pagamento_carrinho.js" defer></script>
+   <!-- Importando uma biblioteca para ser utilizada na validação dos campos-->
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js" defer></script>
+  <!--A dita-cuja (nome auto-explicativo)-->
+  <script src="validacao_campos.js" defer></script>
+  <!--Calculo das parcelas de cartão-->
+    <script type="module" src="calculo_de_parcela.js" defer></script>
+
+
+  <script type="module"  src="../../../produtos_da_busca.js" defer></script>
+</head>
+<body>
+  <!-- =====================================================
+       1. HEADER PRINCIPAL
+       Contém menu, logo, busca e categorias rápidas
+  ===================================================== -->
+  <header>
+    <nav class="header-container">
+      <div class="menu-area">
+        <div class="menu-container">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
+        <nav class="barra-lateral">
+          <ul>
+            <li><a href="../../../tela-inicial.html">Início</a></li>
+            <li><a href="../../login/tela_login.html">Login</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href='../../ver_mais/casual_ver_mais/casual_ver_mais.html?categoria=Moda%20Casual'>Moda Casual</a></li>
+            <li><a href="#">Moda Corporativa</a></li>
+            <li><a href="#">Moda Festiva</a></li>
+            <li><a href="#">Moda Inverno</a></li>
+          </ul>
+        </nav>
+        <p class="menu-texto">MENU</p>
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa">
+      </div>
+
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+      <div class="area-direita">
+        <img src="/imagens/user_icon.png" alt="Usuário" class="usuario_icone">
+       <img src="/imagens/carrinho.png" alt="Carrinho" class="carrinho" onclick="location.href='../../carrinho/carrinho.html'">
+      </div>
+    </nav>
+
+    <!-- Barra de pesquisa e categorias rápidas -->
+    <div class="barra-acima">
+      <div class="x-container">
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+      </div>
+      <div class="barra-pesquisa">
+        <input class="pesquisa" type="text" placeholder="Buscar produtos..." />
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa-input">
+        <div class="simples-x-fechar"></div>
+        <div class="simples-x"></div>
+      </div>
+      <nav class="categorias-menu">
+        <ul>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Corporativa</a></li>
+          <li><a href="#">Festiva</a></li>
+          <li><a href="#">Inverno</a></li>
+        </ul>
+      </nav>
+      <section class="mais-vendido">
+        <h2>Mais Vendidos</h2>
+        <div class="card-container">
+         
+          
+     
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       2. CONTEÚDO PRINCIPAL
+       Formulário de pagamento e resumo da compra
+  ===================================================== -->
+  <main class="content-wrapper">
+    <div class="container-pagamento">
+
+      <!-- 2.1 Formas de Pagamento -->
+      <div class="formas-pagamento">
+        <h2>Selecione a forma de pagamento</h2>
+
+        <!-- Opções de pagamento -->
+        <label class="opcao-pagamento">
+          <input type="radio" name="formaPagamento" value="pix" checked>
+          <img src="/imagens/pix.png"    class="icone-pix"/>PIX
+          <span class="selo">Recomendado</span>
+        </label>
+        <label class="opcao-pagamento">
+          <input type="radio" name="formaPagamento" value="cartao">
+          
+          <img src="/imagens/cartao.png" class="icone-cartao"/> CARTÃO
+        </label>
+        <label class="opcao-pagamento">
+          <input type="radio" name="formaPagamento" value="boleto">
+            <img src="/imagens/qrcode.png" class="icone-boleto"/> BOLETO
+        </label>
+
+        <!-- Detalhes PIX -->
+        <div class="detalhes-pix">
+          <img src="/imagens/pix.png" class="icone-pix"/>
+          <div class="pix-card">
+            <div class="pix-info">
+              <label for="codigo-pix">Código PIX  </label>
+              <input type="text" id="codigo-pix" readonly value="123e4567-89ab-cdef-0123-456789abcdef">
+                <div class="pix-qr">
+              <div class="qr-placeholder">QR</div>
+            </div>
+            </div>
+            <button type="button" class="botao-copiar">COPIAR</button>
+          </div>
+          
+          <button type="button" class="botao-confirmar-pix">CONFIRMAR</button>
+        </div>
+
+        <!-- Detalhes Cartão -->
+        <div class="detalhes-cartao">
+          <form id="form-cartao">
+            <label for="numero-cartao">Número do Cartão</label>
+            <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" required>
+
+            <label for="nome-cartao">Nome completo</label>
+            <input type="text" id="nome-cartao" required pattern="[A-Za-z\s]{5,}">
+
+            <div class="duas-colunas">
+              <div>
+                <label for="validade-cartao">Validade (MM/AA)</label>
+                <input type="text" id="validade-cartao" placeholder="MM/AA" required>
+              </div>
+              <div>
+                <label for="cvv-cartao">CVV</label>
+                <input type="text" id="cvv-cartao" maxlength="4" required pattern="\d{3,4}">
+              </div>
+              <div>
+                <label for="cpf">CPF do titular</label>
+                <input type="text" id="cpf" placeholder="000.000.000-00" required>
+              </div>
+            </div>
+
+            <button type="submit" class="botao-confirmar-cartao">Confirmar Dados</button>
+          </form>
+        </div>
+
+        <!-- Parcelamento (só aparece se o cartão for escolhido) -->
+        <div id="parcelamento" style="display:none;">
+          <h1>Parcelamento</h1>
+          <div id="parcelamento-select-wrapper">
+            <select id="parcelamento-select">
+              <option value="1">1X R$ <span class="parcelaUm"></span> SEM JUROS</option>
+              <option value="2">2X R$ <span class="parcelaDois"></span> SEM JUROS</option>
+              <option value="3">3X R$ <span class="parcelaTres"></span> SEM JUROS</option>
+              <option value="4">4X R$ <span class="parcelaQuatro"></span> SEM JUROS</option>
+              <option value="5">5X R$ <span class="parcelaCinco"></span> SEM JUROS</option>
+              <option value="6">6X R$ <span class="parcelaSeis"></span> SEM JUROS</option>
+              <option value="7">7X R$ <span class="parcelaSete"></span> SEM JUROS</option>
+              <option value="8">8X R$ <span class="parcelaOito"></span> SEM JUROS</option>
+              <option value="9">9X R$ <span class="parcelaNove"></span> SEM JUROS</option>
+              <option value="10">10X R$ <span class="parcelaDez"></span> SEM JUROS</option>
+            </select>
+          </div>
+          
+        </div>
+
+
+        <!-- Botão Continuar -->
+        <button type="button" class="botao-confirmar-parcelamento">CONTINUAR</button>
+
+        <!-- Detalhes Boleto -->
+        <div class="detalhes-boleto">
+          <form class="boleto">
+            <label for="cpf-boleto">CPF</label>
+            <input type = "text" id="cpf-boleto" placeholder="000.000.000-00" required>
+            <label for="nome-boleto">Nome Completo</label>
+            <input id="nome" placeholder="Como no documento" required pattern="[A-Za-z\s]{5,}">
+            <label for="cep">CEP</label>
+            <div class="duas-colunas">
+              <input id="cep" placeholder="00000-000" required>
+              <input id="estado" placeholder="UF" required>
+            </div>
+            <div class="duas-colunas">
+              <input id="cidade" placeholder="Cidade" required>
+              <input id="bairro" placeholder="Bairro" required>
+            </div>
+            <div class="duas-colunas">
+              <input id="rua" placeholder="Rua/Avenida" required>
+              <input id="numero" placeholder="Nº" required>
+            </div>
+            <label for="complemento">Complemento (opcional)</label>
+            <input id="complemento" placeholder="Apto, bloco, etc.">
+            <button type="submit" class="botao-confirmar-boleto">CONFIRMAR COMPRA</button>
+          </form>
+        </div>
+     
+
+
+        <!-- Boleto Placeholder -->
+  <div class="boleto-section" style="display: none;">
+    <div class="boleto-image-container">
+      <img
+        src="/imagens/qrcode.png"
+        alt="Boleto"
+        class="boleto-image"
+      />
+    </div>
+
+    <!-- Código do Boleto + botão -->
+    <div class="boleto-code-container">
+      <label for="codigoBoleto" class="sr-only">Código do Boleto</label>
+      <input
+        type="text"
+        id="codigoBoleto"
+        readonly
+        value="00000 00000 00000 00000 00000 00000 00000"
+        class="boleto-code-input"
+      />
+      <button type="button" class="boleto-copy-btn">Copiar</button>
+    </div>
+  </div>
+ </div>
+      <!-- 2.2 Resumo da Compra -->
+     <div class="resumo-compra">
+ 
+  </div>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       3. RODAPÉ
+       Informações da marca e contatos
+  ===================================================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>Controversy • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+       <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

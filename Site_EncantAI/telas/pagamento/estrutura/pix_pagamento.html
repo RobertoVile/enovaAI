@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantAI - PIX Pagamento</title>
+    <link rel="stylesheet" href="../styles/pix.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </button>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8dGV4dCB4PSIxMCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzY2NDQ2NiI+ZW5jYW50QUk8L3RleHQ+Cjx0ZXh0IHg9IjEwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM5OTk5OTkiPnNlbWlqb2lhcyBmaW5hczwvdGV4dD4KPHN2Zz4=" alt="EncantAI">
+            </div>
+            
+            <div class="nav-right">
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="payment-container">
+                
+                <div class="pix-payment">
+                    <h2>Pagamento</h2>
+                    
+                    <div class="payment-selected">
+                        <div class="payment-icon pix-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <span>PIX</span>
+                        <span class="recommended">Recomendado</span>
+                    </div>
+                    
+                    <div class="pix-payment-section">
+                        <div class="qr-code-container">
+                            <div class="pix-logo-payment">
+                                <div class="pix-symbol">
+                                    <div class="diamond diamond-1"></div>
+                                    <div class="diamond diamond-2"></div>
+                                    <div class="diamond diamond-3"></div>
+                                    <div class="diamond diamond-4"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="qr-code">
+                                <div class="qr-placeholder">
+                                    <span>QR</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pix-code-section">
+                            <label for="pixCode">Código PIX</label>
+                            <div class="code-input-group">
+                                <input type="text" id="pixCode" value="00020126870014BR.GOV.BCB.PIX2565pix.example.com/QR/v2/cobv/9d36b84f-c70f-4b78-9c5e-0123456789ab5204000053039865406970.005802BR5925ENCANTAI.6009SAO_PAULO61080540900062190515RP12345678902019" readonly>
+                                <button class="btn-copiar" onclick="copyPixCode()">COPIAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-confirmar" onclick="confirmPayment()">CONFIRMAR</button>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Resumo da Compra</h3>
+                    
+                    <div class="summary-item">
+                        <span>Produto</span>
+                        <span id="produto">0,00</span>
+                    </div>
+                        
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="frete">0,00</span>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Desconto</span>
+                        <span id="desconto">0,00</span>
+                    </div>
+                        
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <span id="total">0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>EncantAI - Estilo em Todos os Momentos</h4>
+                    <p>Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade. Vista sua melhor versão. Vista EncantAI.</p>
+                    <p class="copyright">© 2025 EncantAI</p>
+                </div>
+                
+                <div class="footer-right">
+                    <h4>Contatos</h4>
+                    <p>encantaai@gmail.com</p>
+                    <p>Instagram: EncantAI_br</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função copiar PIX
+        function copyPixCode() {
+            const pixCode = document.getElementById('pixCode');
+            pixCode.select();
+            pixCode.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(pixCode.value).then(() => {
+                const btn = document.querySelector('.btn-copiar');
+                const originalText = btn.textContent;
+                btn.textContent = 'COPIADO!';
+                btn.style.backgroundColor = '#27ae60';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '#3498db';
+                }, 2000);
+            }).catch(() => {
+                document.execCommand('copy');
+                alert('Código PIX copiado!');
+            });
+        }
+
+        // Confirmar pagamento
+        function confirmPayment() {
+            alert('Pagamento confirmado! Você será redirecionado para a página de confirmação.');
+        }
+
+        // Puxa os valores do localStorage e calcula desconto
+        window.addEventListener('load', function() {
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            const subtotal = produto + frete;
+
+            let desconto = 0;
+            if(subtotal > 100) desconto = subtotal * 0.10; // 10% acima de 100
+
+            const total = subtotal - desconto;
+
+            document.getElementById("produto").textContent = 
+                produto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("frete").textContent = 
+                frete.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("desconto").textContent = 
+                "-" + desconto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+            document.getElementById("total").textContent = 
+                total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status dos Pedidos</title>
+    <!-- Linka o arquivo CSS para aplicar o estilo -->
+    <link rel="stylesheet" href="tela_status.css">
+    <script src="tela_status.js" defer></script>
+</head>
+<body>
+    
+    <header>
+        <nav class="header-container">
+            <!-- Logo da marca -->
+            <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+        </nav>
+    </header>
+
+    <!-- Wrapper para centralizar apenas o conteúdo principal -->
+    <div class="main-content-wrapper">
+        <div class="page-container">
+            <h1 class="page-title">Status dos Pedidos</h1>
+    
+            <section class="filter-section">
+                <span class="filter-label">FILTRAR</span>
+                <div class="filter-dropdown-wrapper">
+                    <select class="filter-dropdown">
+                        <option value="todos">TODOS</option>
+                        <option value="em_andamento">EM ANDAMENTO</option>
+                        <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                        <option value="entregue">ENTREGUE</option>
+                        <option value="cancelado">CANCELADO</option>
+                    </select>
+                </div>
+            </section>
+    
+            <main class="orders-table">
+                <!-- Cabeçalho da Tabela -->
+                <div class="table-header">
+                    <div class="header-cell">PEDIDO N°</div>
+                    <div class="header-cell">CLIENTE</div>
+                    <div class="header-cell">DESCRIÇÃO</div>
+                    <div class="header-cell">ATUALIZAR STATUS ATUAL</div>
+                </div>
+    
+                <!-- Linhas da Tabela de Pedidos -->
+                <div class="table-row">
+                    <div class="row-cell order-number">#001</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="table-row">
+                    <div class="row-cell order-number">#002</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="table-row">
+                    <div class="row-cell order-number">#003</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="table-row">
+                    <div class="row-cell order-number">#004</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="table-row">
+                    <div class="row-cell order-number">#005</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="table-row">
+                    <div class="row-cell order-number">#006</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">xxxx xxxx</div>
+                    <div class="row-cell">
+                        <div class="status-select-wrapper">
+                            <select class="status-select">
+                                <option value="em_andamento">EM ANDAMENTO</option>
+                                <option value="saiu_p_entrega">SAIU P/ENTREGA</option>
+                                <option value="entregue">ENTREGUE</option>
+                                <option value="cancelado">CANCELADO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+            </main>
+            <button class="back-button" onclick="voltar()">VOLTAR</button>
+        </div>
+        
+    </div>
+
+     <footer>
+    <div class="footer-container">
+
+      <div class="footer-info">
+        <h3>EncantAI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista EncantAI.
+        </p>
+        <span>© 2024 - 2025 encantai</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:encantai@gmail.com">encantai@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/encantaai_br?igsh=bmN0cXhnd3drZmNn">encantai_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>

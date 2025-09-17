@@ -1,0 +1,195 @@
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F5F5; /* Cor de fundo principal */
+    min-height: 100vh;
+}
+
+/* Novo wrapper para centralizar apenas o conteúdo principal */
+.main-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1; /* Permite que o wrapper ocupe o espaço disponível */
+}
+
+header {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #B5A2A2;
+    margin: 8px auto 0;
+}
+
+/* Estilos para a seção de filtro */
+.filter-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4A4A4A;
+    margin-right: 10px;
+}
+
+.filter-dropdown-wrapper,
+.status-select-wrapper {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #59343D;
+    overflow: hidden;
+}
+
+/* Estilo da seta branca para o dropdown de filtro e para os dropdowns da tabela */
+.filter-dropdown-wrapper::after,
+.status-select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #fff; /* Seta branca */
+    font-size: 10px;
+    text-align: center;
+}
+
+.filter-dropdown,
+.status-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 8px 30px 8px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff; /* Cor do texto */
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+}
+
+/* Estilos para a Tabela de Pedidos (usando CSS Grid) */
+.orders-table {
+    display: grid;
+    gap: 1px; 
+    background-color: #ddd; 
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table-header, .table-row {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 1.5fr 1.5fr 2fr; /* 4 colunas */
+    background-color: #fff;
+}
+
+.table-header {
+    background-color: #EFEFEF;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4A4A4A;
+    text-align: left;
+}
+
+.header-cell, .row-cell {
+    padding: 15px 10px;
+    border-right: 1px solid #ddd;
+}
+
+.header-cell:last-child, .row-cell:last-child {
+    border-right: none;
+}
+
+/* Efeito de listra nas linhas (alternando as cores) */
+.table-row:nth-child(odd) {
+    background-color: #EFEFEF; /* Cinza claro */
+}
+
+/* Estilo para a coluna de número do pedido */
+.order-number {
+    font-weight: bold;
+}
+
+.back-button-container {
+    
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.back-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: #c82333;
+}
+
+option{
+    background-color: #59343D;
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 600px) {
+    .table-header, .table-row {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas pequenas */
+    }
+    .header-cell:nth-child(2), .row-cell:nth-child(2),
+    .header-cell:nth-child(3), .row-cell:nth-child(3) {
+        display: none; /* Esconde as colunas de cliente e descrição */
+    }
+}

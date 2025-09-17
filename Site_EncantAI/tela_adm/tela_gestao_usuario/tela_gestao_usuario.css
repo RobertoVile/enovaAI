@@ -1,0 +1,148 @@
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f3f3;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+}
+
+footer{
+    position: relative;
+    bottom: 0%;
+}
+
+.user-management-section {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    flex: 1;
+}
+
+.user-management-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-management-title span {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-weight: 500;
+}
+
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0; /* Cor de fundo para o ícone */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.user-profile {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.excluir{
+    margin-bottom:60px;
+    margin-right:-450px;
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+    
+
+}
+
+.btn-update {
+    background-color: #3182CE;
+    color: white;
+}
+
+.user-management-buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-back {
+    background-color: #C80003;
+    color: white;
+    padding: 12px 40px;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+
+    body{
+        font-size: 20px;
+    }
+    .user-card {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .user-actions {
+        width: 100%; 
+        justify-content: space-between; 
+    }
+
+    .excluir, .btn-update {
+        
+        flex: 1; 
+        text-align: center;
+    }
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informações do cliente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cliente_vermais.css">
+  <script src="./cliente_vermais.js" defer></script>
+</head>
+<body>
+       <!-- Header -->
+    <header>
+    <nav class="header-container">
+    
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+  
+
+    </nav>
+    </div>
+  </header>
+  <main class="wrapper">
+    <section class="section" aria-labelledby="cliente-titulo">
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">
+          <!-- ícone genérico -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.7614 0 5-2.2386 5-5s-2.2386-5-5-5-5 2.2386-5 5 2.2386 5 5 5z" fill="#7d5e65"/>
+            <path d="M3 20c0-2.7614 4.4772-5 9-5s9 2.2386 9 5v1H3v-1z" fill="#7d5e65"/>
+          </svg>
+        </div>
+        <div class="user-info">
+          <div class="user-name">Jailson Souza</div>
+          <div class="user-email">Email: jailson@gmail.com</div>
+        </div>
+      </div>
+
+      <form class="form-grid" onsubmit="return false;">
+        <!-- CEP (esquerda) -->
+        <div>
+          <label for="cep">CEP</label>
+          <input id="cep" type="text" placeholder="EX: 03405030" disabled>
+        </div>
+
+        <!-- QTD pedidos (direita) -->
+        <div>
+          <label for="qtd">Quantidade de Pedidos Realizado</label>
+          <div id="qtd" class="qty-box" disabled>exemplo</div>
+        </div>
+
+        <!-- Rua / Bairro -->
+        <div>
+          <label for="rua">Rua / Avenida</label>
+          <input id="rua" type="text" placeholder="EX: Rua das Almas" disabled>
+        </div>
+        <div>
+          <label for="bairro">Bairro</label>
+          <input id="bairro" type="text" placeholder="EX: Gleba C" disabled>
+        </div>
+
+        <!-- Número / Cidade / Estado -->
+        <div class="full small-grid">
+          <div>
+            <label for="numero">Número</label>
+            <input id="numero" type="text" placeholder="EX: 02" disabled>
+          </div>
+          <div>
+            <label for="cidade">Cidade</label>
+            <input id="cidade" type="text" placeholder="Camaçari" disabled>
+          </div>
+          <div>
+            <label for="estado">Estado</label>
+            <input id="estado" type="text" placeholder="Informação" disabled>
+          </div>
+        </div>
+
+        <!-- Complemento -->
+        <div class="full">
+          <label for="complemento">Complemento</label>
+          <textarea id="complemento" placeholder="Informação" disabled></textarea>
+        </div>
+
+        <!-- botão -->
+        <div class="full actions">
+        </div>
+      </form>
+      <button class="btn" id="voltarBtn" type="button" onclick="voltar()">Voltar</button>
+    </section>
+  </main>
+
+
+   <footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>EncantaAI • Estilo em Todos os Momentos</h3>
+        <p>
+          Na EncantaAI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista EncantaAI.
+        </p>
+        <span>© 2024 - 2025 EncantaAI</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>

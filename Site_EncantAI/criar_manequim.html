@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Criar Manequim</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f2f2f2;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #erro {
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Criar Seu Manequim</h2>
+    <p>1. Clique no botão abaixo para criar seu manequim no Ready Player Me:</p>
+    <a href="https://readyplayer.me/avatar" target="_blank">
+      <button>Abrir Criador de Avatar</button>
+    </a>
+
+    <p>2. Cole a URL do seu manequim aqui:</p>
+    <input type="text" id="urlManequim" placeholder="https://models.readyplayer.me/...glb">
+
+    <button id="salvarBtn">Salvar Manequim</button>
+
+    <p id="erro"></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Pega o ID do usuário logado
+      const userId = localStorage.getItem("userId");
+      const erroEl = document.getElementById("erro");
+
+      if (!userId) {
+        erroEl.innerText = "Erro: Usuário não logado. Volte para a página inicial e faça login novamente.";
+        document.getElementById("salvarBtn").disabled = true;
+        return;
+      }
+
+      document.getElementById("salvarBtn").addEventListener("click", () => {
+        const urlManequim = document.getElementById("urlManequim").value.trim();
+
+        if (!urlManequim) {
+          alert("Cole a URL do manequim!");
+          return;
+        }
+
+        // Salva no localStorage vinculado ao ID do usuário
+        localStorage.setItem(`manequim_${userId}`, urlManequim);
+
+        // Atualiza o widget se ele estiver aberto
+        const widget = document.getElementById("manequim");
+        if (widget) {
+          widget.innerHTML = `
+            <model-viewer src="${urlManequim}" camera-controls auto-rotate shadow-intensity="1" background-color="#FFFFFF" class="enc-main-image"></model-viewer>
+          `;
+        }
+
+        alert("Manequim salvo com sucesso!");
+        window.location.href = "tela-inicial.html"; // Redireciona para a loja
+      });
+    });
+  </script>
+</body>
+</html>

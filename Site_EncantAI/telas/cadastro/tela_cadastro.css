@@ -1,0 +1,392 @@
+@import url(/componentes_padrao_css/componentes_padrao.css);
+@import url(/componentes_padrao_css/componentes_padrao2.css);
+
+/*------------------------------------
+  1. Variáveis CSS para cores principais
+------------------------------------*/
+:root {
+    --preto: #000;
+    --branco: #fff;
+    --dourado: #C3971E; /* Tom de dourado */
+    --cinza-claro: #ccc;
+}
+
+/*------------------------------------
+  2. Reset básico e estilos globais
+------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+    padding: 0;
+    user-select: none;
+    background: var(--branco);
+    font-family: 'Harmattan', sans-serif;
+    color: #333;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*------------------------------------
+  3. Cabeçalho Principal
+------------------------------------*/
+header {
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+/*------------------------------------
+  4. Container do Cabeçalho e Logo
+------------------------------------*/
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0.7vw 2vw;             
+    height: 8.5vw;
+}
+
+/*------------------------------------
+  5. Seção de cadastro
+------------------------------------*/
+main {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  flex: 1;
+}
+
+.cadastro-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;   
+  width: 100%;
+  gap: 2rem;             
+}
+
+.image-container,
+.form-container {
+  flex: 1;             
+  width: 100%;        
+}
+
+/*-----------------------------------
+  6. Animações e posicionamento de imagens
+------------------------------------*/
+.imagem_central,
+.imagem_inclinada,
+.imagem_inclinada_2 {
+    position: relative;
+    transition: top 0.3s ease, z-index 0.3s ease; /* transição suave no top */
+}
+
+/* Hover clássico */
+.imagem_central:hover,
+.imagem_inclinada:hover,
+.imagem_inclinada_2:hover {
+    top: -20px;
+    z-index: 3;
+}
+
+.imagem_inclinada {
+    transform: rotate(-10deg);
+    top: 0;
+    z-index: 1;
+}
+
+.imagem_inclinada_2 {
+    transform: rotate(10deg);
+    top: 0;
+    z-index: 1;
+}
+
+.imagem_central {
+    top: 0;
+    z-index: 2;
+}
+
+/*------------------------------------
+  7. Estilização das imagens sobrepostas
+------------------------------------*/
+.image-container {
+    text-align: center;
+    flex: 1;
+    position: sticky;
+    top: 0;              
+    left: -5%;
+    margin-top: -800px;  
+ 
+}
+.image-container img {
+    width: 45%;
+    margin: 0 -65px;
+    border-radius: 8px;
+    transition: top 0.3s ease; /* mantém o hover suave */
+    margin-top: 40px;
+}
+.image-container .caption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+    left: 510%;
+}
+
+/*------------------------------------
+  8. Formulário de cadastro e títulos
+------------------------------------*/
+.form-container form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.5rem;
+    margin-left: 0;
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.input-icon {
+    width: 100%;
+}
+
+/* Campos que ocupam toda a largura */
+#nome,
+#cpf,
+#email,
+#senha1,
+#senha2,
+#complemento {
+    grid-column: span 2;
+}
+
+/* Campos que ficam lado a lado */
+#cep,
+#rua,
+#numero,
+#bairro,
+#cidade,
+#estado {
+    width: 100%;
+}
+
+/* Ajustes específicos */
+#cep { grid-column: 1 / 2; }
+#bairro { grid-column: 2 / 3; }
+#rua { grid-column: 1 / 2; }
+#numero { grid-column: 2 / 3; }
+#cidade { grid-column: 1 / 2; }
+#estado { grid-column: 2 / 3; }
+
+/* Botão de cadastro ocupa as duas colunas */
+.btn-cadastrar {
+    grid-column: span 2;
+    width: 100%;
+}
+
+/* Divisor e link ocupam duas colunas */
+.divider,
+.login-link {
+    grid-column: span 2;
+}
+
+/*------------------------------------
+  9. Container para input + ícone
+------------------------------------*/
+.input-icon {
+    position: relative;
+    margin-bottom: 1rem;
+}
+.input-icon i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1rem;
+}
+.form-container input {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border: 1px solid var(--cinza-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+
+
+.input-icon textarea {
+    width: 100%;
+    padding: 12px 12px 12px 35px; /* igual ao input */
+    border: 1px solid var(--cinza-claro);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    resize: none; /* impede redimensionamento manual, opcional */
+}
+
+.input-icon textarea:focus {
+    border-color: var(--dourado);
+}
+
+/*------------------------------------
+ 10. Foco no input
+------------------------------------*/
+.input-icon input:focus {
+    border-color: var(--dourado);
+}
+
+/*------------------------------------
+ 11. Botão de login
+------------------------------------*/
+.btn-cadastrar{
+    background: var(--preto);
+    color: var(--branco);
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+.btn-cadastrar:hover {
+    background: #333;
+}
+
+/*------------------------------------
+ 12. Divisor "OU"
+------------------------------------*/
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    font-size: 0.9rem;
+    color: #666;
+}
+.divider span {
+    background: var(--branco);
+    padding: 0 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+.divider:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--cinza-claro);
+    z-index: 0;
+}
+
+/*------------------------------------
+ 13. Link para login
+------------------------------------*/
+.login-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+.login-link a {
+    color: var(--dourado);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*------------------------------------
+  15. Responsividade
+------------------------------------*/
+@media (min-width: 1369px) {
+    .login-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .image-container {
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+/*------------------------------------
+  Ajustes de responsividade para ≤720px
+------------------------------------*/
+@media (max-width: 720px) {
+  .cadastro-section {
+    flex-direction: column;
+  }
+
+  .form-container {
+    flex: none;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .image-container{
+      flex: none;
+      width: 100%;
+      margin-top: 70px;
+      left: 0;
+      position: static; /* para mobile não interferir */
+  }
+
+  .image-container img {
+    width: 30vw;
+    display: inline-block;
+  }
+
+  .form-container form {
+    margin-left: 0;
+  }
+
+  .input-icon input,
+  .btn-cadastrar {
+    width: 100%;
+  }
+}
+
+/*------------------------------------
+  Mensagens de feedback
+------------------------------------*/
+.mensagem {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.mensagem:not(:empty) {
+    display: block;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

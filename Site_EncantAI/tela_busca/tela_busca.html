@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Peças</title>
+    <link rel="stylesheet" href="tela_busca.css">
+    <script src="consulta_pecas.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="header-container">
+            <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="content">
+            <h1 class="title">Consulta de Peças</h1>
+
+            <form action="#" method="get">
+                <div class="search-section">
+                    <label for="product-name">Nome do Produto</label>
+                    <input type="text" id="product-name" placeholder="xxxxxxxx" 
+                           pattern="^[A-Za-zÀ-ÿ ]{1,100}$" 
+                           title="Até 100 letras e espaços; sem números ou caracteres especiais" 
+                           required>
+                </div>
+
+                <div class="product-info-card">
+                    <div class="product-image-container">
+                        <span class="image-label">IMAGEM DA ROUPA</span>
+                        <div class="placeholder-image">?</div>
+                    </div>
+                    <div class="product-details">
+                        <h2>Nome do Produto</h2>
+                        <p>Quantidade: 12</p>
+                        <p>Tamanho: PP</p>
+                        <p>Cor: Preto</p>
+                    </div>
+                    <div class="product-price-category">
+                        <p>Preço: 120,00</p>
+                        <p>Categoria: Short</p>
+                    </div>
+                    <button class="update-button" type="submit">Atualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="back-button-container">
+        <button class="back-button" onclick="voltar()">VOLTAR</button>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>EncantAI • Estilo em Todos os Momentos</h3>
+                <p>
+                    Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+                    Vista sua melhor versão.<br>
+                    Vista EncantAI.
+                </p>
+                <span>© 2024 - 2025 EncantAI</span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-contato">
+                <h3>Contatos</h3>
+                <p>Email: <a href="mailto:controversy@gmail.com">encantai@gmail.com</a></p>
+                <hr>
+                <p>Instagram: <a href="https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">encatai_br</a></p>
+                <hr>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

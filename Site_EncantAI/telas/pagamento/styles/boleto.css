@@ -1,0 +1,392 @@
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #e8d5d8, #d4b8c2);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-btn, .search-btn, .user-btn, .cart-btn {
+    background: none;
+    border: none;
+    color: #664466;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.menu-btn:hover, .search-btn:hover, .user-btn:hover, .cart-btn:hover {
+    background-color: rgba(102, 68, 102, 0.1);
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 40px 0;
+}
+
+.payment-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Boleto Payment */
+.boleto-payment h2 {
+    color: #664466;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* Payment Method Selected */
+.payment-selected {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    border: 2px solid #e67e22;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    gap: 15px;
+    background-color: #fef9f3;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.boleto-icon {
+    background-color: #e67e22;
+}
+
+.payment-selected span {
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+}
+
+/* Boleto Instructions */
+.boleto-instructions {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.boleto-instructions h3 {
+    color: #e67e22;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.boleto-instructions p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.boleto-instructions p:last-child {
+    margin-bottom: 0;
+}
+
+/* Boleto Visual */
+.boleto-visual {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.boleto-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #6c757d;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Boleto Code Section */
+.boleto-code-section {
+    margin-bottom: 30px;
+}
+
+.boleto-code-section label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+.code-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.code-input-group input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.btn-copiar {
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-copiar:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* PDF Download Section */
+.pdf-download-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.btn-baixar-pdf {
+    padding: 15px 30px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-baixar-pdf:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+.btn-baixar-pdf i {
+    font-size: 16px;
+}
+
+/* Confirm Button */
+.btn-confirmar {
+    width: 100%;
+    padding: 15px 30px;
+    background-color: #00d4aa;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-confirmar:hover {
+    background-color: #00b894;
+    transform: translateY(-1px);
+}
+
+/* Order Summary */
+.order-summary {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.order-summary h3 {
+    color: #664466;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.footer h4 {
+    margin-bottom: 15px;
+    color: #00d4aa;
+}
+
+.footer p {
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.copyright {
+    margin-top: 15px !important;
+    font-size: 12px !important;
+    color: #999 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .payment-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .header .container {
+        padding: 0 15px;
+    }
+    
+    .nav-left, .nav-right {
+        gap: 10px;
+    }
+    
+    .menu-btn span {
+        display: none;
+    }
+    
+    .code-input-group {
+        flex-direction: column;
+    }
+    
+    .btn-copiar {
+        width: 100%;
+    }
+    
+    .boleto-title {
+        font-size: 32px;
+        letter-spacing: 4px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .boleto-payment h2 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantAI - Pagamento</title>
+    <link rel="stylesheet" href="../styles/pagamento.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </button>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="logo">
+                <img src="image.png" alt="EncantAI">
+            </div>
+            
+            <div class="nav-right">
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="payment-container">
+               
+                <div class="payment-form">
+                    <h2>Selecione a forma de pagamento</h2>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <input type="radio" id="pix" name="payment" value="pix" checked>
+                            <label for="pix" class="payment-label">
+                                <i class="fas fa-qrcode"></i>
+                                <span>PIX</span>
+                                <span class="recommended">Recomendado</span>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="cartao" name="payment" value="cartao">
+                            <label for="cartao" class="payment-label">
+                                <i class="fas fa-credit-card"></i>
+                                <span>CARTÃO</span>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="boleto" name="payment" value="boleto">
+                            <label for="boleto" class="payment-label">
+                                <i class="fas fa-barcode"></i>
+                                <span>BOLETO</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn-voltar" onclick="goBack()">VOLTAR</button>
+                        <button class="btn-continuar" onclick="proceedPayment()">CONTINUAR</button>
+                    </div>
+                </div>
+                
+                <!-- Resumo da Compra -->
+                <div class="order-summary">
+                    <h3>Resumo da Compra</h3>
+                    
+                    <div class="summary-item">
+                        <span>Produto</span>
+                        <span id="produto"></span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="frete"></span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <span id="total"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>EncantAI - Estilo em Todos os Momentos</h4>
+                    <p>Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade. Vista sua melhor versão. Vista EncantAI.</p>
+                    <p class="copyright">© 2025 EncantAI</p>
+                </div>
+                
+                <div class="footer-right">
+                    <h4>Contatos</h4>
+                    <p>encantaai@gmail.com</p>
+                    <p>Instagram: EncantAI_br</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ---------- Parte que DEFINE os valores (simulação do carrinho) ----------
+        // Só use isso numa tela de checkout/carrinho
+        const produtoInicial = 1000.00;
+        const freteInicial   = 50.00;
+
+        // Salva no localStorage (apenas uma vez, no checkout)
+        localStorage.setItem("produto", produtoInicial.toFixed(2));
+        localStorage.setItem("frete", freteInicial.toFixed(2));
+        localStorage.setItem("total", (produtoInicial + freteInicial).toFixed(2));
+
+
+        // ---------- Parte que PUXA e MOSTRA os valores ----------
+        const produto = parseFloat(localStorage.getItem("produto")) || 0;
+        const frete   = parseFloat(localStorage.getItem("frete")) || 0;
+        const total   = parseFloat(localStorage.getItem("total")) || (produto + frete);
+
+        document.getElementById("produto").innerText = 
+            produto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+        document.getElementById("frete").innerText = 
+            frete.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+        document.getElementById("total").innerText = 
+            total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+
+        // ---------- Lógica da seleção de pagamento ----------
+        function proceedPayment() {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            
+            switch(selectedPayment) {
+                case 'pix':
+                    window.location.href = 'pix_dados.html';
+                    break;
+                case 'cartao':
+                    window.location.href = 'cartao_adicionar.html';
+                    break;
+                case 'boleto':
+                    window.location.href = 'boleto.html';
+                    break;
+            }
+        }
+        
+        function goBack() {
+            window.history.back();
+        }
+
+        // feedback visual
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.payment-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                this.closest('.payment-option').classList.add('selected');
+            });
+        });
+
+        document.querySelector('#pix').closest('.payment-option').classList.add('selected');
+    </script>
+</body>
+</html>

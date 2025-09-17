@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncantAI - Pagamento Cartão</title>
+    <link rel="stylesheet" href="../styles/cartao.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </button>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,..." alt="EncantAI">
+            </div>
+            
+            <div class="nav-right">
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Card Payment -->
+                <div class="card-payment">
+                    <h2>Pagamento</h2>
+                    
+                    <!-- Payment Method Selected -->
+                    <div class="payment-selected">
+                        <div class="payment-icon card-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <span>Novo Cartão de Crédito</span>
+                    </div>
+                    
+                    <!-- Installments Section -->
+                    <div class="installments-section">
+                        <h3>Parcelamento</h3>
+                        <p class="installment-subtitle">Pague parcelado no cartão</p>
+                        
+                        <div class="installments-list">
+                            <!-- parcelas serão inseridas dinamicamente -->
+                        </div>
+                        
+                        <!-- Card Visual Payment -->
+                        <div class="card-visual-payment">
+                            <div class="credit-card-payment">
+                                <div class="card-chip-payment">
+                                    <div class="chip-lines-payment">
+                                        <div class="chip-line-payment"></div>
+                                        <div class="chip-line-payment"></div>
+                                        <div class="chip-line-payment"></div>
+                                        <div class="chip-line-payment"></div>
+                                    </div>
+                                </div>
+                                <div class="card-number-payment">•••• •••• •••• ••••</div>
+                                <div class="card-name-payment">Nome e Sobrenome</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-confirmar" onclick="confirmCardPayment()">CONFIRMAR</button>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Resumo da Compra</h3>
+                    
+                    <div class="summary-item">
+                        <span>Produto</span>
+                        <span id="produto-valor">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="frete-valor">R$ 0,00</span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Valor Total</span>
+                        <span id="valor-total">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h4>EncantAI - Estilo em Todos os Momentos</h4>
+                    <p>Na EncantAI você encontra peças que valorizam seu estilo com elegância e autenticidade. Vista sua melhor versão. Vista EncantAI.</p>
+                    <p class="copyright">© 2025 EncantAI</p>
+                </div>
+                
+                <div class="footer-right">
+                    <h4>Contatos</h4>
+                    <p>encantaai@gmail.com</p>
+                    <p>Instagram: EncantAI_br</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Atualiza resumo da compra + parcelas
+        function atualizarResumo() {
+            const produto = parseFloat(localStorage.getItem("produto")) || 0;
+            const frete = parseFloat(localStorage.getItem("frete")) || 0;
+            const total = produto + frete;
+
+            // Atualiza resumo
+            document.getElementById('produto-valor').textContent = 
+                total > 0 ? produto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'R$ 0,00';
+            document.getElementById('frete-valor').textContent = 
+                total > 0 ? frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'R$ 0,00';
+            document.getElementById('valor-total').textContent = 
+                total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+            // Atualiza valores das parcelas
+            const installmentsList = document.querySelector('.installments-list');
+            installmentsList.innerHTML = "";
+
+            for (let i = 1; i <= 12; i++) {
+                const valorParcela = total / i;
+
+                const option = document.createElement('div');
+                option.classList.add('installment-option');
+                if (i === 1) option.classList.add('selected');
+
+                option.innerHTML = `
+                    <input type="radio" id="installment${i}" name="installments" value="${i}" ${i === 1 ? 'checked' : ''}>
+                    <label for="installment${i}">${i}x R$ ${valorParcela.toFixed(2).replace('.', ',')} Sem Juros</label>
+                `;
+
+                installmentsList.appendChild(option);
+            }
+
+            // Reaplica evento de highlight
+            document.querySelectorAll('input[name="installments"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll('.installment-option').forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                    this.closest('.installment-option').classList.add('selected');
+                });
+            });
+        }
+
+        // Confirma pagamento
+        function confirmCardPayment() {
+            const selectedInstallment = document.querySelector('input[name="installments"]:checked');
+            const installmentText = selectedInstallment.nextElementSibling.textContent;
+            
+            alert(`Pagamento confirmado!\nParcelamento: ${installmentText}\nVocê será redirecionado para a página de confirmação.`);
+            // window.location.href = 'confirmacao.html';
+        }
+
+        // Atualiza tudo ao carregar
+        window.addEventListener('load', () => {
+            // Exibe cartão vindo da tela anterior
+            const cardData = sessionStorage.getItem('cardData');
+            if (cardData) {
+                const data = JSON.parse(cardData);
+                document.querySelector('.card-number-payment').textContent = data.cardNumber;
+                document.querySelector('.card-name-payment').textContent = data.cardName;
+            }
+
+            // Calcula resumo e parcelas
+            atualizarResumo();
+        });
+    </script>
+</body>
+</html>

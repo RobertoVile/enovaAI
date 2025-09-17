@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Controversy</title>
+
+  <!-- Cleave (já usado no seu projeto) -->
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js" defer></script>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
+
+  <!-- CSS externo (separado) -->
+  <link rel="stylesheet" href="tela_cadastro.css">
+  <!-- JS da página -->
+  <script src="tela_cadastro.js" defer></script>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <nav class="header-container">
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <section class="cadastro-section">
+      <!-- Lado esquerdo: imagens -->
+      <div class="image-container">
+        <img src="/imagens/imagem_cadastro.jpg" alt="Modelo Controversy 1" class="imagem_inclinada">
+        <img src="/imagens/imagem_cadastro2.jpg" alt="Modelo Controversy 2" class="imagem_central">
+        <img src="/imagens/imagem_cadastro3.jpg" alt="Modelo Controversy 3" class="imagem_inclinada_2">
+        <p class="caption">Confira os novos looks Controversy</p>
+      </div>
+
+      <!-- Lado direito: formulário -->
+      <div class="form-container">
+        <h1>Faça seu Cadastro</h1>
+
+        <!-- mensagem (sucesso/erro) -->
+        <div id="message" class="mensagem" aria-live="polite"></div>
+
+        <form action="#" method="POST" novalidate>
+          <!-- OBS: cada .form-item é um item da grid; os que precisam ser full-width têm inline style grid-column: span 2; -->
+
+          <!-- Nome (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="nome">Nome Completo</label>
+            <div class="input-icon">
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+          </div>
+
+          <!-- CPF (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="cpf">CPF</label>
+            <div class="input-icon">
+              <input type="text" id="cpf" name="cpf" placeholder="EX: 000.000.000-00" required>
+            </div>
+          </div>
+
+          <!-- Email (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="email">Email</label>
+            <div class="input-icon">
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+          </div>
+
+          <!-- Senha (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="senha1">Senha</label>
+            <div class="input-icon">
+              <input type="password" id="senha1" name="senha1"
+                     placeholder="Digite sua senha"
+                     pattern="(?=.*[A-Z])(?=.*\d).{4,}"
+                     title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número"
+                     required>
+            </div>
+          </div>
+
+          <!-- Confirmação (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="senha2">Confirmação de Senha</label>
+            <div class="input-icon">
+              <input type="password" id="senha2" name="senha2"
+                     placeholder="Confirme sua senha"
+                     pattern="(?=.*[A-Z])(?=.*\d).{4,}"
+                     title="Mínimo 4 caracteres, 1 letra maiúscula e 1 número"
+                     required>
+            </div>
+          </div>
+
+          <!-- CEP (esquerda) -->
+          <div class="form-item">
+            <label for="cep">CEP</label>
+            <div class="input-icon">
+              <input type="text" id="cep" name="cep" placeholder="Ex: 03405030" required>
+            </div>
+          </div>
+
+          <!-- Bairro (direita) -->
+          <div class="form-item">
+            <label for="bairro">Bairro</label>
+            <div class="input-icon">
+              <input type="text" id="bairro" name="bairro" placeholder="Ex: Gleba C" required>
+            </div>
+          </div>
+
+          <!-- Rua (esquerda) -->
+          <div class="form-item">
+            <label for="rua">Rua</label>
+            <div class="input-icon">
+              <input type="text" id="rua" name="rua" placeholder="Ex: Rua das Almas" required>
+            </div>
+          </div>
+
+          <!-- Número (direita) -->
+          <div class="form-item">
+            <label for="numero">Número</label>
+            <div class="input-icon">
+              <input type="text" id="numero" name="numero" placeholder="Ex: 02" required>
+            </div>
+          </div>
+
+          <!-- Cidade (esquerda) -->
+          <div class="form-item">
+            <label for="cidade">Cidade</label>
+            <div class="input-icon">
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: Camaçari" required>
+            </div>
+          </div>
+
+          <!-- Estado (direita) -->
+          <div class="form-item">
+            <label for="estado">Estado</label>
+            <div class="input-icon">
+              <input type="text" id="estado" name="estado" placeholder="Ex: Bahia" required>
+            </div>
+          </div>
+
+          <!-- Complemento (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <label for="complemento">Complemento (opcional)</label>
+            <div class="input-icon">
+              <textarea id="complemento" name="complemento" placeholder="EX: Detalhar Endereço Com Referências" rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- Botão (full) -->
+          <div class="form-item" style="grid-column: span 2; text-align:center;">
+            <button type="submit" class="btn-cadastrar">CADASTRAR</button>
+          </div>
+
+          <!-- Divisor "OU" (full) -->
+          <div class="form-item" style="grid-column: span 2;">
+            <div class="divider"><span>OU</span></div>
+          </div>
+
+          <!-- Link login (full) -->
+          <div class="form-item" style="grid-column: span 2; text-align:center;">
+            <p class="login-link">
+              Já tem conta na Controversy? <a href="/telas/login/tela_login.html">Faça o LOGIN</a> para conferir todos os looks.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé (opcional) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>Controversy • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href="https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

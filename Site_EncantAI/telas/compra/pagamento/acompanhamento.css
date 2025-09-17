@@ -1,0 +1,136 @@
+@import url(../../../componentes_padrao_css/componentes_padrao.css);
+@import url(../../../componentes_padrao_css/componentes_padrao2.css);
+
+body {
+  font-family: 'Harmattan';
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: #fff;                /* Fundo branco */
+  border: 1px solid #e5e5e5;             /* Borda clara e sutil */
+  border-radius: 12px;                   /* Cantos arredondados */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05),      /* Sombra principal */
+    0 2px 4px rgba(0, 0, 0, 0.08);  
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+/* FOTO DE CONFIRMAÇÃO: deixar branca */
+.confirmacao {
+  margin-top: 1px;
+  margin-bottom: 60px;
+  width: 70px;
+  height: 70px;
+   filter: invert(70%) sepia(31%) saturate(482%) hue-rotate(77deg) brightness(100%) contrast(89%);
+  
+}
+
+/* NOVO BOTÃO DE ACOMPANHAMENTO */
+.btn-acompanhamento {
+  background: #f2f2f2;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+
+/* INFORMAÇÕES DO PEDIDO */
+.pedido-info {
+  margin-bottom: 20px;
+}
+
+/* ESTILIZAÇÃO DO STATUS COM LINHA E IMAGENS */
+.status {
+  margin-top: 10px;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+
+/* Linha horizontal entre os processos */
+/* Ajustada para ficar justamente no meio dos círculos de 90px */
+.status-bar::before {
+  content: "";
+  position: absolute;
+  top: 25px;           /* metade do novo diâmetro (90px / 2) */
+  left: 12.5%;         /* mantém o mesmo offset lateral */
+  right: 12.5%;
+  height: 2px;
+  background: #ccc;
+  z-index: 0;
+}
+
+/* Cada passo ocupa igualmente o espaço */
+.status-step {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+  z-index: 1; /* para que os círculos fiquem acima da linha */
+}
+
+/* O círculo atrás do ícone */
+.status-step::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.step-icon{
+   filter: brightness(0) invert(1);
+}
+/* Quando o passo está ativo, o círculo fica verde */
+.status-step.active::before {
+  background: #70CB70;
+}
+
+/* Ícone dentro do círculo: aumentado para 40x40 e centralizado */
+.step-icon,
+.step-icon-desativo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;          /* aumenta largura para caber melhor no círculo de 90px */
+  height: 30px;         /* aumenta altura para caber melhor no círculo de 90px */
+  margin-top: 10px;     /* desloca o ícone para ficar central verticalmente dentro de 90px */
+}
+
+.step-icon-desativo {
+  filter: invert(100%) sepia(0%) saturate(0%) brightness(50%);
+}
+
+/* Texto abaixo do círculo (com espaçamento reduzido) */
+.status-step span {
+  display: block;
+  margin-top: 30px; /* ajustado para cair logo abaixo do círculo maior */
+  color: gray;      /* mantém cor cinza mesmo se estiver ativo */
+}
+
+/* Não altera a cor do texto quando ativo */

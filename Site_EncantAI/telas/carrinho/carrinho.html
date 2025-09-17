@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controversy</title>
+  <link rel="stylesheet" href="carrinho.css">
+  <script type = "module" src="carrinho.js" defer></script>
+  <script type="module"  src="../../../produtos_da_busca.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="header-container">
+      <!-- Menu Área -->
+      <div class="menu-area">
+
+        <!-- Menu Container -->
+        <div class="menu-container">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="barra-lateral">
+          <ul>
+             <li><a href="../../../tela-inicial.html">Início</a></li>
+            <li><a href="../login/tela_login.html">Login</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href='../ver_mais/casual_ver_mais/casual_ver_mais.html?categoria=Moda%20Casual'>Moda Casual</a></li>
+            <li><a href="#">Moda Corporativa</a></li>
+            <li><a href="#">Moda Festiva</a></li>
+            <li><a href="#">Moda Inverno</a></li>
+          </ul>
+        </nav>
+
+        <p class="menu-texto">MENU</p>
+        <img src="/imagens/lupa.png" alt="Lupa" class="lupa">
+
+      </div>
+
+      <!-- Logo -->
+      <img src="/imagens/logo.png" alt="Logo Controversy" class="logo">
+
+      <!-- Área Direita -->
+      <div class="area-direita">
+        <img src="/imagens/user_icon.png" alt="Usuário" class="usuario_icone">
+        <img src="/imagens/carrinho.png" alt="Carrinho" class="carrinho" onclick="location.href='carrinho.html'">
+      </div>
+
+    </nav>
+
+    <!-- Barra Acima (movida para cá, fora da .menu-area) -->
+    <div class="barra-acima">
+
+      <!-- Botão X para fechar -->
+      <div class="x-container">
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+        <span class="x-bar"></span>
+      </div>
+
+      <!-- Barra de Pesquisa -->
+      <div class="barra-pesquisa">
+       
+        <input class="pesquisa" type="text" placeholder="Buscar produtos..." />
+         <img src="/imagens/lupa.png" alt="Lupa" class="lupa-input">
+         <div class="simples-x-fechar"></div>
+          <div class="simples-x"></div>
+      </div>
+
+      <!-- Menu de Categorias -->
+      <nav class="categorias-menu">
+        <ul>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Corporativa</a></li>
+          <li><a href="#">Festiva</a></li>
+          <li><a href="#">Inverno</a></li>
+        </ul>
+      </nav>
+
+      <!-- Seção Mais Vendidos -->
+      <section class="mais-vendido">
+        <h2>Mais Vendidos</h2>
+        <div class="card-container">
+
+          <div class="card">
+            <div class="star-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <a href="#">
+              <img src="imagens/kirei 1.jpg" alt="Produto 1" />
+              <p class="product-name">Produto 1</p>
+            </a>
+          </div>
+
+          <div class="card">
+            <div class="star-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <a href="#">
+              <img src="imagens/kirei2.png" alt="Produto 2" />
+              <p class="product-name">Produto 2</p>
+            </a>
+          </div>
+
+          <div class="card">
+            <div class="star-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <a href="#">
+              <img src="imagens/oi.jpg" alt="Produto 3" />
+              <p class="product-name">Produto 3</p>
+            </a>
+          </div>
+
+          <div class="card">
+            <div class="star-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <a href="#">
+              <img src="imagens/eae.jpg" alt="Produto 4" />
+              <p class="product-name">Produto 4</p>
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+<div class="pagina-carrinho">
+  <div class="container-carrinho">
+    
+
+
+    <div class="coluna-esquerda">
+      <label class="selecionar-todos">
+        <input type="checkbox" class="input_todos" />
+        Selecionar Todos
+      </label>
+
+      <!-- Item do carrinho -->
+      
+    </div>
+
+    <div class="coluna-direita">
+      <ul class="resumo-valores">
+        <li><span>Valor Total</span><strong class="valor-total">R$ 0</strong></li>
+        <div class="divisor"></div>
+        <li><span>Valor via Pix</span><strong class="valor-pix">R$ 0</strong></li>
+        <div class="divisor"></div>
+      </ul>
+
+      <button class="botao-comprar" onclick=>COMPRAR</button>
+      <a href="#" class="continuar-comprando">Continuar Comprando</a>
+    </div>
+  </div>
+</div>
+</div>
+<footer>
+    <div class="footer-container">
+
+      <!-- Informações do Footer -->
+      <div class="footer-info">
+        <h3>Controversy • Estilo em Todos os Momentos</h3>
+        <p>
+          Na Controversy você encontra peças que valorizam seu estilo com elegância e autenticidade.<br>
+          Vista sua melhor versão.<br>
+          Vista Controversy.
+        </p>
+        <span>© 2024 - 2025 Controversy</span>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Contato do Footer -->
+      <div class="footer-contato">
+        <h3>Contatos</h3>
+        <p>Email: <a href="mailto:controversy@gmail.com">controversy@gmail.com</a></p>
+        <hr>
+        <p>Instagram: <a href = "https://www.instagram.com/controversy_br?igsh=bmN0cXhnd3drZmNn">controversy_br</a></p>
+        <hr>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>
