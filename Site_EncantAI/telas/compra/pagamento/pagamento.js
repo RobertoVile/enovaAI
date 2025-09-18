@@ -1,12 +1,18 @@
 // pagamento.js
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Lógica para carregar total + mostrar/ocultar div de parcelamento
 // + calcular o valor de cada parcela. Sem export/import.
 
 // 1) Helpers para converter/formatar valores BRL
+
+
 import { HeaderFuncoes } from "../../../header.js";
 HeaderFuncoes();
+
+
 function parseBRL(textoBRL) {
+  
   const apenasNumeros = textoBRL
     .replace("R$", "")
     .trim()
@@ -112,7 +118,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 4.1) Primeiro, carregue o resumo com total (await garante que .preco-total exista)
   await carregarPreco();
 
-  // 4.2) Agora defina as referências aos elementos de pagamento
+   
+
+  // 4.2)Definir as referências aos elementos de pagamento
 const radios = document.querySelectorAll('input[name="formaPagamento"]');
 const detalhesPix = document.querySelector(".detalhes-pix");
 const detalhesCartao = document.querySelector(".detalhes-cartao");
@@ -122,9 +130,10 @@ const parcelamentoCartao = document.querySelector('#parcelamento');
 const boletoPagamento = document.querySelector(".boleto-section");
 const botaoCopiarPix = document.querySelector(".botao-copiar");
 const botaoCopiarBoleto = document.querySelector(".boleto-copy-btn");
+const botaoVoltar = document.querySelector(".btn-voltar")
 
 
-  // 4.3) Esconda todos os detalhes e o parcelamento no início
+  // 4.3) Esconder todos os detalhes e o parcelamento no início
   detalhesPix.style.display = "none";
   detalhesCartao.style.display = "none";
   detalhesBoleto.style.display = "none";
@@ -198,4 +207,11 @@ const botaoCopiarBoleto = document.querySelector(".boleto-copy-btn");
   if (radioInicial) {
     radioInicial.dispatchEvent(new Event("change"));
   }
+
+  botaoVoltar.addEventListener("click",()=>{
+  window.history.back();
+  })
+
+
+
 });

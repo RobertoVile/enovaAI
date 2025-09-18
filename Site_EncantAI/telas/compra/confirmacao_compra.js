@@ -2,8 +2,18 @@
 import { HeaderFuncoes } from "../../header.js";
 HeaderFuncoes();
 
+const btn = document.querySelector(".botao-voltar")
+
+btn.addEventListener("clicl",()=>{
+  window.history.back();
+})
+
+
+
+
 async function carregarPreco() {
   const container = document.querySelector('.resumo-compra');
+
 
   try {
     const pegarId = new URLSearchParams(window.location.search);

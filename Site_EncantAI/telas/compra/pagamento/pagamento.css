@@ -181,12 +181,15 @@ button:hover{
 .action-buttons {
     display: flex;
     justify-content: left;
-    gap: 15px;
-    padding-left: 150px;
+    gap: 10px;
+    padding-left: 50px;
 }
 
-.btn-voltar, .btn-continuar {
-    padding: 20px 6 0px;
+.btn-voltar{
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-right: 70px;
+    padding-left: 70px;
     border: none;
     border-radius: 25px;
     font-weight: bold;
@@ -206,16 +209,9 @@ button:hover{
     transform: translateY(-1px);
 }
 
-.btn-continuar {
-    background-color: #00d4aa;
-    color: white;
-   
-}
 
-.btn-continuar:hover {
-    background-color: #00b894;
-    transform: translateY(-1px);
-}
+
+
 
 
 /* =====================================================
