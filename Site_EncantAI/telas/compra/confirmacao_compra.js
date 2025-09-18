@@ -4,7 +4,7 @@ HeaderFuncoes();
 
 const btn = document.querySelector(".botao-voltar")
 
-btn.addEventListener("clicl",()=>{
+btn.addEventListener("click",()=>{
   window.history.back();
 })
 

@@ -74,11 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
     });
 
-    // alterar (pode personalizar depois)
-    wrapper.querySelector(".alterar-item").addEventListener("click", e => {
-      e.preventDefault();
-      alert("Aqui você pode implementar o fluxo de alterar tamanho/cor.");
-    });
 
     // quantidade
     wrapper.querySelector(".aumentar").addEventListener("click", e => {

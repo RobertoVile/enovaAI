@@ -1,151 +1,151 @@
 /* =====================================================
-   IMPORTAÇÕES DE ESTILOS PADRÃO
-   Arquivos externos com variáveis e mixins gerais
+IMPORTAÇÕES DE ESTILOS PADRÃO
+Arquivos externos com variáveis e mixins gerais
 ===================================================== */
 @import url(/componentes_padrao_css/componentes_padrao.css);
 @import url(/componentes_padrao_css/componentes_padrao2.css);
 
 /* =====================================================
-   BASE E RESET
-   Definições globais para body e formatação básica
+BASE E RESET
+Definições globais para body e formatação básica
 ===================================================== */
 body {
-  overflow-x: hidden;
-  font-family: Harmattan, sans-serif;
-  font-size: 1.3rem;
+overflow-x: hidden;
+font-family: Harmattan, sans-serif;
+font-size: 1.3rem;
 }
 
 form label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 600;
-  font-size: 0.95rem;
+display: block;
+margin-top: 1rem;
+font-weight: 600;
+font-size: 0.95rem;
 }
 
 /* =====================================================
-   LAYOUT PRINCIPAL
-   Container divide em duas colunas com flexbox
+LAYOUT PRINCIPAL
+Container divide em duas colunas com flexbox
 ===================================================== */
 .container-pagamento {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 100px;
-  margin: 1px auto;
-  padding: 40px;
-  background-color: #fff;
-  box-sizing: border-box;
-  max-width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+flex-wrap: wrap;
+gap: 100px;
+margin: 1px auto;
+padding: 40px;
+background-color: #fff;
+box-sizing: border-box;
+max-width: 100%;
 }
 
 /* Grupo comum: colunas duplas dentro de formulários e boleto */
 .duas-colunas {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+margin-top: 0.5rem;
 }
 .duas-colunas > div,
 .duas-colunas > input {
-  flex: 1 1 48%;
-  min-width: 150px;
+flex: 1 1 48%;
+min-width: 150px;
 }
 
 /* =====================================================
-   FORMAS DE PAGAMENTO
-   Estilo dos cards de pagamento e botões principais
+FORMAS DE PAGAMENTO
+Estilo dos cards de pagamento e botões principais
 ===================================================== */
 .formas-pagamento {
-  flex: 1;
-  width: 100%;
-  min-width: 0;
+flex: 1;
+width: 100%;
+min-width: 0;
 }
 .formas-pagamento h2 {
-  font-size: 1rem;
-  margin-bottom: 10px;
+font-size: 1rem;
+margin-bottom: 10px;
 }
 .opcao-pagamento {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 30px 15px;
-  width: 100%;
-  margin-bottom: 30px;
-  background-color: #F5F5F5;
-  border: 1px solid #CCCCCC;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+display: flex;
+align-items: center;
+position: relative;
+padding: 30px 15px;
+width: 100%;
+margin-bottom: 30px;
+background-color: #F5F5F5;
+border: 1px solid #CCCCCC;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1rem;
+transition: border-color 0.3s ease;
 }
 .opcao-pagamento:hover {
-  border-color: #888;
+border-color: #888;
 }
 .opcao-pagamento input[type="radio"] {
-  margin-right: 10px;
+margin-right: 10px;
 }
 
 /* Ícones padrão para cada forma de pagamento */
 .icone-pix,
 .icone-cartao,
 .icone-boleto {
-  display: inline-block;
-  margin-right: 10px;
-  flex-shrink: 0;
+display: inline-block;
+margin-right: 10px;
+flex-shrink: 0;
 }
 .icone-pix {
-  width: 24px;
-  height: 24px;
- background-color: white;
- padding: 8px;
- border-radius: 20px;
+width: 24px;
+height: 24px;
+background-color: white;
+padding: 8px;
+border-radius: 20px;
 }
 
 .detalhes-pix img{
-  width: 130px;
-  height: 130px;
-  position: relative;
+width: 130px;
+height: 130px;
+position: relative;
 }
 .icone-cartao {
- 
- width: 24px;
-  height: 24px;
- background-color: #FFFFFF;
- padding: 8px;
- border-radius: 20px;
-  position: relative;
+
+width: 24px;
+height: 24px;
+background-color: #FFFFFF;
+padding: 8px;
+border-radius: 20px;
+position: relative;
 }
 .icone-cartao::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  height: 4px;
-  background-color: #ccc;
+content: "";
+position: absolute;
+bottom: 2px;
+left: 2px;
+right: 2px;
+height: 4px;
+background-color: #ccc;
 }
 .icone-boleto {
-  
- width: 34px;
-  height: 34px;
- background-color: #FFFFFF;
- padding: 8px;
- border-radius: 20px;
-  position: relative;
+
+width: 34px;
+height: 34px;
+background-color: #FFFFFF;
+padding: 8px;
+border-radius: 20px;
+position: relative;
 }
 
 /* Selo de "Recomendado" */
 .selo {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  background-color: #000;
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 2px 6px;
-  border-radius: 12px;
+position: absolute;
+top: 50%;
+right: 15px;
+transform: translateY(-50%);
+background-color: #000;
+color: #fff;
+font-size: 0.75rem;
+padding: 2px 6px;
+border-radius: 12px;
 }
 
 /* Botões principais */
@@ -153,386 +153,355 @@ form label {
 .botao-confirmar-boleto,
 .botao-confirmar-parcelamento,
 .botao-confirmar-pix,
-.botao-confirmar-cartao{
-  display: block;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  margin: 30px auto 0;
-  transition: opacity 0.3s ease;
+.botao-confirmar-cartao,
+.btn-confirmar,
+.btn-copiar,
+.btn-baixar-pdf {
+display: block;
+background-color: #000;
+color: #fff;
+border: none;
+border-radius: 20px;
+padding: 10px 20px;
+font-size: 1rem;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+margin: 30px auto 0;
+transition: opacity 0.3s ease;
 }
 
 .botao-copiar{
-  position: relative;
-  width: 200px;
-  margin:0px 
+position: relative;
+width: 200px;
+margin:0px 
 }
 
 button:hover{
-  opacity: 0.9;
+opacity: 0.9;
 }
 
 .action-buttons {
-    display: flex;
-    justify-content: left;
-    gap: 10px;
-    padding-left: 50px;
+ display: flex;
+ justify-content: left;
+ gap: 10px;
+ padding-left: 50px;
 }
 
 .btn-voltar{
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 70px;
-    padding-left: 70px;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    
+ padding-top:10px;
+ padding-bottom: 10px;
+ padding-right: 70px;
+ padding-left: 70px;
+ border: none;
+ border-radius: 25px;
+ font-weight: bold;
+ cursor: pointer;
+ font-size: 14px;
+ transition: all 0.3s ease;
 }
 
 .btn-voltar {
-    background-color: #e74c3c;
-    color: white;
+ background-color: #e74c3c;
+ color: white;
 }
 
 .btn-voltar:hover {
-    background-color: #c0392b;
-    transform: translateY(-1px);
+ background-color: #c0392b;
+ transform: translateY(-1px);
 }
 
-
-
-
-
-
 /* =====================================================
-   DETALHES DO PIX
-   Código PIX e QR Code lado a lado
+DETALHES DO PIX
+Código PIX e QR Code lado a lado
 ===================================================== */
 .detalhes-pix,
 #parcelamento {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background-color: #F5F5F5;
-  border: 2px solid #CCCCCC;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-  position: relative;
-  width: 70%;
+display: flex;
+flex-direction: column;
+gap: 20px;
+background-color: #F5F5F5;
+border: 2px solid #CCCCCC;
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 30px;
+position: relative;
+width: 70%;
 }
 .pix-card {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+display: flex;
+gap: 20px;
+align-items: center;
 }
 .pix-info {
-  display: flex;
-  flex: 1;
-  align-items: center;
+display: flex;
+flex: 1;
+align-items: center;
 
 }
 .pix-info label {
-  font-size: 0.9rem;
-  color: #444;
+font-size: 0.9rem;
+color: #444;
 }
 .pix-info input {
-  flex: 1;
-  width: 100%;
-  margin-left: 20px;
-  padding: 8px 12px;
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
+flex: 1;
+width: 100%;
+margin-left: 20px;
+padding: 8px 12px;
+background: #f5f5f5;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 0.9rem;
 
 }
 .pix-qr .qr-placeholder {
-  width: 150px;
-  height: 150px;
-  background-color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  position: absolute;
-  top:7%;
-  right: 5%;
+width: 150px;
+height: 150px;
+background-color: #eee;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #999;
+font-size: 1.2rem;
+border-radius: 8px;
+position: absolute;
+top:7%;
+right: 5%;
 }
 
 .botao-confirmar-pix{
-  bottom: 0%;
+bottom: 0%;
 }
 
 /* =====================================================
-   DETALHES DO CARTÃO
-   Formulário de dados do cartão
+DETALHES DO CARTÃO
+Formulário de dados do cartão
 ===================================================== */
 .detalhes-cartao form {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px 150px 20px 30px;
-  max-width: 600px;
+display: flex;
+flex-direction: column;
+background-color: #fff;
+border: 2px solid #ccc;
+border-radius: 8px;
+padding: 20px 150px 20px 30px;
+max-width: 600px;
 }
-.detalhes-cartao label,
-.detalhes-boleto label {
-  margin-top: 0.5rem;
+.detalhes-cartao label {
+margin-top: 0.5rem;
 }
-.detalhes-cartao input,
-.detalhes-boleto input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.detalhes-cartao input {
+padding: 0.5rem;
+border: 1px solid #ccc;
+border-radius: 4px;
 }
 
 /* =====================================================
-   DETALHES DO BOLETO
-   Formulário de boleto bancário
-===================================================== */
-.detalhes-boleto {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 600px;
-  margin-bottom: 30px;
-}
-.detalhes-boleto label,
-.detalhes-boleto input {
-  width: 97%;
-}
-.detalhes-boleto p {
-  margin-bottom: 1rem;
-}
-
-/* =====================================================
-   PARCELAMENTO (SELECT CUSTOMIZADO)
-   Estilização da descida das parcelas
+PARCELAMENTO (SELECT CUSTOMIZADO)
+Estilização da descida das parcelas
 ===================================================== */
 #parcelamento h1 {
-  margin-bottom: 12px;
-  font-size: 1.25rem;
-  color: #fff;
+margin-bottom: 12px;
+font-size: 1.25rem;
+color: #fff;
 }
 #parcelamento {
-  width: 300px;
-  font-family: Harmattan;
-  background: #2a2a2a;
-  color: #fff;
-  user-select: none;
+width: 300px;
+font-family: Harmattan;
+background: #2a2a2a;
+color: #fff;
+user-select: none;
 }
 #parcelamento-select-wrapper {
-  position: relative;
+position: relative;
 }
 #parcelamento-select-wrapper > label {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 0.9rem;
-  color: white;
+display: block;
+margin-bottom: 4px;
+font-size: 0.9rem;
+color: white;
 }
 #parcelamento-select {
-  width: 100%;
-  padding: 10px 38px 10px 12px;
-  background-color: var(--cinzaVariante);
-  border: none;
-  border-radius: 6px;
-  appearance: none;
-  cursor: pointer;
-  color: white;
-  
-  -webkit-appearance: none;
-  line-height: 1.3;
+width: 100%;
+padding: 10px 38px 10px 12px;
+background-color: var(--cinzaVariante);
+border: none;
+border-radius: 6px;
+appearance: none;
+cursor: pointer;
+color: white;
+
+-webkit-appearance: none;
+line-height: 1.3;
 }
 
 select option:hover {
-  background-color: transparent !important;
-  color: inherit !important;
+background-color: transparent !important;
+color: inherit !important;
 }
 
- 
+
 
 #parcelamento-select-wrapper::after {
-  content: '▼';
-  position: absolute;
-  top: 65%;
-  right: 12px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  
+content: '▼';
+position: absolute;
+top: 65%;
+right: 12px;
+transform: translateY(-50%);
+pointer-events: none;
+
 }
 #parcelamento-select option {
-  background-color: #3a3a3a;
-  color: #fff;
+background-color: #3a3a3a;
+color: #fff;
 }
 
 
 #parcelamento-select option:checked {
-  background-color: #444;
+background-color: #444;
 }
 
 /* =====================================================
-   SEÇÃO DE BOLETO COM CÓDIGO E E QRCODE
-   Estilização da descida das parcelas
+SEÇÃO DE BOLETO COM CÓDIGO E QRCODE (NOVO ESTILO)
 ===================================================== */
-.boleto-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  max-width: 32rem;
-  margin: 0 auto;
-  position: relative;
-  right: 20%;
+.detalhes-boleto {
+display: flex;
+flex-direction: column;
+padding: 20px;
+border: 1px solid #CCCCCC;
+border-radius: 8px;
+background-color: #F5F5F5;
+margin-bottom: 30px;
 }
-
-/* Imagem do boleto */
+.detalhes-boleto p {
+font-size: 0.9rem;
+line-height: 1.4;
+color: #555;
+text-align: center;
+margin-bottom: 1.5rem;
+}
+.detalhes-boleto p:first-child {
+font-weight: bold;
+}
 .boleto-image-container {
-  width: 50%;
-  overflow: hidden;
-  border: 1px solid #e2e2e2;
-  border-radius: 0.375rem;
-  background-color: #f9f9f9;
-   margin-left: 100px;
-}
-.boleto-image {
-  display: block;
-  width: 100%;
-  height: auto;
- 
-}
-
-/* Container do código + botão */
-.boleto-code-container {
-  display: flex;
-  gap: 0.5rem;
-}
-.boleto-code-input {
-  flex: 1;
-  padding: 0.75rem;
-  font-size: 0.875rem;
-  border: 1px solid #ccc;
-  border-radius: 0.375rem;
-  background-color: #f5f5f5;
-  color: #333;
-}
-.boleto-copy-btn {
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  border: none;
-  border-radius: 0.375rem;
-  background-color: #000;
-  color: #fff;
-  cursor: pointer;
-  white-space: nowrap;
+width: 100%;
+height: 100px;
+background-color: #e0e0e0;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.5rem;
+font-weight: bold;
+color: #999;
+letter-spacing: 5px;
+margin-bottom: 1.5rem;
 }
 
-/* Responsividade */
-@media (min-width: 640px) {
-  .boleto-section {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .boleto-image-container {
-    flex: 1;
-  }
-  .boleto-code-container {
-    flex: 1;
-    flex-direction: column;
-  }
+/* Linha de código e botão de cópia */
+.detalhes-boleto > div {
+display: flex;
+flex-direction: column;
+gap: 5px;
+margin-bottom: 1.5rem;
 }
 
+.detalhes-boleto > div > div {
+display: flex;
+gap: 10px;
+align-items: center;
+}
+
+.detalhes-boleto input[type="text"] {
+flex: 1;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+background-color: #fff;
+font-family: monospace;
+font-size: 0.9rem;
+}
+
+.detalhes-boleto button {
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+background-color: #000;
+color: #fff;
+cursor: pointer;
+font-size: 0.9rem;
+font-weight: bold;
+}
 
 /* =====================================================
-   RESUMO DA COMPRA
+RESUMO DA COMPRA
 ===================================================== */
-
 .resumo-compra {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 6px;
-  flex: 0.5;
+background-color: #fff;
+padding: 20px;
+border-radius: 6px;
+flex: 0.5;
 }
 
 .resumo-compra ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+list-style: none;
+padding: 0;
+margin: 0;
 }
 
 .resumo-item {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  margin-bottom: 20px;
-  padding-left: 20px;
+display: flex;
+justify-content: space-between; 
+align-items: center;
+margin-bottom: 20px;
+padding-left: 20px;
 
-  
+
 }
 
 .resumo-item .preco {
-  min-width: 100px;
-  font-weight: bold;
-  text-align: left;
-  color: #333;
-  
+min-width: 100px;
+font-weight: bold;
+text-align: left;
+color: #333;
+
 }
 
 .resumo-item .descricao {
-  flex: 1;
-  color: #666;
+flex: 1;
+color: #666;
 }
 
 .resumo-item.total .descricao {
-  font-weight: bold;
-  color: #000;
+font-weight: bold;
+color: #000;
 }
 
 .resumo-item.total .preco {
-  font-size: 1.2em;
+font-size: 1.2em;
 }
 
 .divisor{
-  width: auto;
-  background-color: black;
-  height: 1px;
-  opacity: 0.3;
-  margin-bottom: 20px;
-  margin-top: -10px;
+width: auto;
+background-color: black;
+height: 1px;
+opacity: 0.3;
+margin-bottom: 20px;
+margin-top: -10px;
 }
 
+
 /* =====================================================
-   RESPONSIVIDADE
+RESPONSIVIDADE
 ===================================================== */
 
 @media (max-width: 900px) {
-  .container-pagamento { flex-direction: column; padding: 20px; }
-  .formas-pagamento,
-  .resumo-compra { width: 88%; }
-  .detalhes-cartao form { padding: 20px; }
+.container-pagamento { flex-direction: column; padding: 20px; }
+.formas-pagamento,
+.resumo-compra { width: 88%; }
+.detalhes-cartao form { padding: 20px; }
 }
 @media (max-width: 600px) {
-  .pix-card { flex-direction: column; padding: 1rem; }
-  .container-pagamento { flex-direction: column; padding: 1rem; }
-  .resumo-compra { margin-top: 1rem; }
-  .botao-continuar { width: 100%; margin-top: 1rem; }
+.pix-card { flex-direction: column; padding: 1rem; }
+.container-pagamento { flex-direction: column; padding: 1rem; }
+.resumo-compra { margin-top: 1rem; }
+.botao-continuar { width: 100%; margin-top: 1rem; }
 }
